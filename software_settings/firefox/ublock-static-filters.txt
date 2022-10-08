@@ -1,0 +1,17 @@
+! YouTube: skip google consent
+||consent.google.com/$subdocument
+www.google.com##^script:has-text(CONSENT)
+www.youtube.com##.opened
+www.youtube.com###lightbox > .ytd-consent-bump-v2-lightbox.style-scope
+
+! DuckDuckGo
+duckduckgo.com##.js-feedback-btn-wrap
+duckduckgo.com##.js-header-aside.header--aside
+duckduckgo.com##.js-results-sidebar.results--sidebar
+duckduckgo.com##.footer
+duckduckgo.com##.badge-link--newsletter.badge-link--thumbnail.js-badge-link.badge-link--serp.badge-link
+
+! Twitter
+! login and cookie popups
+twitter.com##html:style(overflow: auto !important;)
+twitter.com##[id^="layers"]

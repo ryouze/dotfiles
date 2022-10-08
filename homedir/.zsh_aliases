@@ -1,0 +1,80 @@
+# Interactive aliases loaded by .zshrc
+
+# ALIAS: show all hidden files (apart from "go up")
+alias la="ls -A"
+
+# ALIAS: show all hidden files, human-readable size & their permissions (apart from "go up")
+alias ll="ls -AlhS"
+
+# ALIAS: cat to bat - syntax highlighting, paging and decorations disabled
+alias cat="bat --style=plain --pager=never"
+
+# ALIAS: colored man (aka help) pages using bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# ALIAS: colored grep and case-insensitive grep
+alias grep="grep --color=auto"
+alias igrep="grep -i"
+
+# ALIAS: reload zshrc (config file only)
+alias reload="source ~/.zshrc"
+
+# ALIAS: go to vscode settings.json
+alias vscode-settings="cd ~/Library/Application\ Support/Code/User/ && ls -A"
+
+# ALIAS: update all pip (Python3) packages
+alias pip-update="python3 ~/Code/Projects/dotfiles/Scripts/pip_update.py"
+
+# ALIAS: restore default Launchpad order
+alias launchpad-restore="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
+
+# ALIAS: rename all pictures in: ~/Pictures/pic
+alias pic-rename="python3 ~/Code/Projects/dotfiles/Scripts/pic_rename.py"
+
+# FUNCTION: display weather
+# function weather() {
+#     city="$1"
+#     if [ -z "$city" ]; then
+#         city="Tokyo"
+#     fi
+#     eval "curl http://wttr.in/${city}"
+# }
+
+# ALIAS: print a list of git commands
+alias man-git="bat ~/.help_list/man-git.txt --style=plain --pager=never -l bash"
+
+# ALIAS: print a list of python virtual environment commands
+alias man-venv="bat ~/.help_list/man-venv.txt --style=plain --pager=never -l bash"
+
+# FUNCTION: grep (case-insensitive) a list of locations where macos apps might leave their files
+man-uninstall () {
+    locations=("/Applications/" "/Library/" "/Library/Preferences/" "/Library/Caches/" "/Library/Application Support/" "/Library/Application Support/CrashReporter/" "/Library/Saved Application State/" "/Library/Internet Plug-Ins/")
+    # this type of loop (using $var) for array might not work in bash
+    for var in $locations; do
+        # check global directories
+        if [ -d $var ]; then;
+            echo ">$var" && ls $var | igrep $1 || echo "..."
+        # else
+        #     echo ">$var\nerror: directory doesn't exist"
+        fi
+        # echo "\n"
+        # check home directories
+        var_home="${HOME}${var}"
+        if [ -d $var_home ]; then
+          echo ">$var_home" && ls $var_home | igrep $1 || echo "..."
+        # else
+        #     echo ">$var_home\nerror: directory doesn't exist"
+        fi
+        # echo "\n"
+    done
+}
+
+# alias gco="git checkout"
+# alias gnah="git reset --hard && git clean -df"
+# alias gpull="git pull --rebase"
+
+# FUNCTION: notunes - show menubar icon after hiding it
+notunes-show () { osascript -e 'quit app "noTunes"'; defaults delete digital.twisted.noTunes; open -a noTunes }
+
+# ALIAS: start http server in current directory (useful for webdev)
+alias http-start="python3 -m http.server"

@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[core]
+	editor = nano
+	excludesfile = /Users/hikari/.gitignore
+[credential]
+	helper = osxkeychain

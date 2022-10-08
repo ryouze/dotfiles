@@ -1,0 +1,86 @@
+# Help for: Git Source Control System
+
+# Set credentials:
+# // Use "--global" switch to set it system-wide
+git config user.name "ryouze"
+git config credential.username "ryouze"
+git config user.email "mail.noreply.github.com"
+
+# Display current credentials:
+# // Show all or one-by-one
+git config --list
+git config user.name
+git config credential.username
+git config user.email
+
+# Change user account:
+https://stackoverflow.com/questions/22844806/how-to-change-my-git-username-in-terminal
+git config user.name <name> -> git config user.email <name> -> git config credential.username <name>
+git config credential.username <name>
+
+# Create new repository:
+echo "# Title" >> README.md
+git init
+git add README.md
+git commit -m "init"
+git branch -M main
+# // Remote takes two args: remote name (e.g., origin) and remote URL
+git remote add origin https://github.com/ryouze/ryouze.git
+# // Verify new remote
+git remote -v
+git push -u origin main
+
+# Fetch updated content from remote repository:
+# // Fetch but do not make changes to local tree (safe)
+git fetch
+# // Fetch and merge with local tree (unsafe)
+git pull
+
+# Display working tree status:
+git status
+
+# Display commit history:
+git log
+git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit
+
+# Add files:
+# // Add all or one-by-one
+git add .
+git add *.py
+git add <name>
+
+# Display added files:
+git status
+# // Use "-u" switch to show untracked files
+git status -u
+
+# Commit and push files:
+git commit -m <message>
+git push
+
+# Reset added files:
+git reset .
+
+# Switch branch:
+git checkout <name>
+
+# Create new branch from curent branch:
+git checkout -b <new-branch>
+# // Or specify the branch you want to use
+git checkout -b ＜new-branch＞ ＜existing-branch＞
+
+# Delete branch:
+git branch -d <name>
+
+# Recreate repository without history:
+# // Get current origin
+git config --get remote.origin.url
+# // Remove old history
+rm -rf .git
+# // Re-create repository
+git init
+git add .
+git commit -m "init"
+# // Force-push to the github remote repository
+git remote add origin <your origin>
+git push -u --force origin main
