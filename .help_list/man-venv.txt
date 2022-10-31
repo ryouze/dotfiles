@@ -9,11 +9,10 @@ set-executionpolicy remotesigned -scope currentuser
 get-executionpolicy -list
 
 # Create:
-python3 -m venv . --upgrade-deps
 python3 -m venv ./env --upgrade-deps
 
 # Activate:
-. bin/activate
+. env/bin/activate
 
 # Deactivate:
 deactivate
@@ -31,5 +30,5 @@ pip3 install tensorflow-metal
 
 # VS Code - settings.json:
 {
-    "python.defaultInterpreterPath": "./bin/python3"
+    "python.defaultInterpreterPath": "./env/bin/python3"
 }
