@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # .zshrc is for interactive shells (read only if interactive).
 # You set options for the interactive shell there with the setopt and unsetopt commands.
 # You can also load shell modules, set your history options, change your prompt, set up zle and completion, et cetera.
@@ -5,21 +6,22 @@
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
-bindkey -e
+HISTSIZE=10000
+SAVEHIST=10000
+# bindkey -e
 # It's for when you run compinstall again. It lets compinstall find where it has written out zstyle statements for you last time. This way, you can run compinstall again to update them.
-zstyle :compinstall filename '$HOME/.zshrc'
+zstyle ':compinstall' filename '$HOME/.zshrc'
 
 # SET: zsh-specific options
+# -> hist_expire_dups_first = delete duplicates first when HISTFILE size exceeds HISTSIZE
+# -> hist_ignore_dups = ignore duplicated commands history list
+# -> hist_ignore_space = ignore commands that start with space
+# -> hist_verify = show command with history expansion to user before running it
 # -> appendhistory = make sure that Arrow keys bring your history
-# -> extendedglob = sets glob-related options
 # -> correctall = asks you to correct the mistyped words (n for no, y for yes, a for all, e for exit)
-# -> unsetopt beep = disable beep sounds
-# -> export CLICOLOR = show colors for commands (e.g., ls), same as "--color=auto"
-# -> export LSCOLORS = color scheme for commands (https://geoff.greer.fm/lscolors/)
-# -> PROMPT = PS1 prompt, path only, bold red & yellow colors
-setopt appendhistory extendedglob notify correctall nomatch globdots
+# -> globdots = match files beginning with a "." without explicitly specifying the dot (e.g., tab completion)
+setopt hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_ignore_space hist_verify appendhistory notify correctall globdots
+# -> beep = disable beep sounds
 unsetopt beep
 export CLICOLOR=1
 export LSCOLORS="BaFxGxDxCxegedabagaced"
@@ -37,8 +39,11 @@ source ~/.zsh_aliases
 # PATH: add zsh completions
 #FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 FPATH=/opt/homebrew/share/zsh-completions:$FPATH
+
 # highlight auto-completion with tab
 zstyle ':completion:*' menu select
+
+# On slow systems, checking the cached .zcompdump file to see if it must be regenerated adds a noticable delay to zsh startup.
 autoload -Uz compinit
 compinit
 
