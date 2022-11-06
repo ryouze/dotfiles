@@ -16,7 +16,7 @@ my setup for macos / linux
   * `.nanorc` - enables line numbers, tabsize & points syntax highlighting location to homebrew
   * `.zsh_aliases` - aliases for zsh, e.g., `igrep`, `http`-start
   * `.zshrc` - enables zsh features, adds brew to path & aliases
-* `scripts/` - external scripts (location: `~/Software/Scripts`)
+* `scripts/` - external scripts (location: `~/Github/dotfiles/scripts`)
   * `is_rosetta_installed.sh` - answers if rosetta2 is installed on arm64 macbooks
   * `pic_rename.py` - renames pics to random strings in `~/Pictures/pic`
   * `pip_update.py` - updates all pip3 packages (also works in venv)
