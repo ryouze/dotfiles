@@ -12,7 +12,7 @@ my setup for macos / linux
 * `homedir/` - shell config files (location: `~`)
   * `.gitconfig` - git configuration, sets branch name & editor
   * `.gitignore` - files to be ignored when using `git add .`
-  * `.hushlogin` - disables `last login` msg in terminal
+  * `.hushlogin` - disables "last login" msg in terminal
   * `.nanorc` - enables line numbers, tabsize & points syntax highlighting location to homebrew
   * `.zsh_aliases` - aliases for zsh, e.g., `igrep`, `http`-start
   * `.zshrc` - enables zsh features, adds brew to path & aliases
