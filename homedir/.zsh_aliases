@@ -29,18 +29,6 @@ alias pip-update="python3 ~/Github/dotfiles/scripts/pip_update.py"
 # ALIAS: restore default Launchpad order
 alias launchpad-restore="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
 
-# ALIAS: rename all pictures in: ~/Pictures/pic
-alias pic-rename="python3 ~/Code/Projects/dotfiles/Scripts/pic_rename.py"
-
-# FUNCTION: display weather
-# function weather() {
-#     city="$1"
-#     if [ -z "$city" ]; then
-#         city="Tokyo"
-#     fi
-#     eval "curl http://wttr.in/${city}"
-# }
-
 # ALIAS: print a list of git commands
 alias man-git="bat ~/.help_list/man-git.txt --style=plain --pager=never -l bash"
 
@@ -49,6 +37,12 @@ alias man-venv="bat ~/.help_list/man-venv.txt --style=plain --pager=never -l bas
 
 # ALIAS: print a list of jupyter notebook commands
 alias man-jupyter="bat ~/.help_list/man-jupyter.txt --style=plain --pager=never -l bash"
+
+# ALIAS: tree command like on windows
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+
+# ALIAS: start http server in current directory (useful for webdev)
+alias http-start="python3 -m http.server"
 
 # FUNCTION: grep (case-insensitive) a list of locations where macos apps might leave their files
 # man-uninstall () {
@@ -73,12 +67,21 @@ alias man-jupyter="bat ~/.help_list/man-jupyter.txt --style=plain --pager=never 
 #     done
 # }
 
+# FUNCTION: display weather
+# function weather() {
+#     city="$1"
+#     if [ -z "$city" ]; then
+#         city="Tokyo"
+#     fi
+#     eval "curl http://wttr.in/${city}"
+# }
+
+# FUNCTION: notunes - show menubar icon after hiding it
+# notunes-show () { osascript -e 'quit app "noTunes"'; defaults delete digital.twisted.noTunes; open -a noTunes }
+
+# ALIAS: rename all pictures in: ~/Pictures/pic
+# alias pic-rename="python3 ~/Code/Projects/dotfiles/Scripts/pic_rename.py"
+
 # alias gco="git checkout"
 # alias gnah="git reset --hard && git clean -df"
 # alias gpull="git pull --rebase"
-
-# FUNCTION: notunes - show menubar icon after hiding it
-notunes-show () { osascript -e 'quit app "noTunes"'; defaults delete digital.twisted.noTunes; open -a noTunes }
-
-# ALIAS: start http server in current directory (useful for webdev)
-alias http-start="python3 -m http.server"
