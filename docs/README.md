@@ -22,7 +22,7 @@ my setup for macos / linux
   * `pip_update.py` - updates all pip3 packages (also works in venv)
 * `software_settings/` - software-specific settings (location: varies)
   * `chrome/` - chrome [plist](https://chromeenterprise.google/policies/)
-  * `firefox/` - firefox [policies.json](https://support.mozilla.org/en-US/kb/customizing-firefox-using-policiesjson) & static ublock filters
+  * `firefox/` - firefox [policies.json](https://support.mozilla.org/en-US/kb/customizing-firefox-using-policiesjson), static ublock filters & custom css
   * `github/` - gh cli switcher for work/personal github account // [author](https://gist.github.com/yermulnik/017837c01879ed3c7489cc7cf749ae47)
   * `homebrew/` - packages list (e.g., python, vlc)
   * `vscode/` - settings, keybinds, list of extensions
