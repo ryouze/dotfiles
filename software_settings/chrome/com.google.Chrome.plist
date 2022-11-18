@@ -1,28 +1,37 @@
 {
+    AccessibilityImageLabelsEnabled = 0;
     AlwaysOpenPdfExternally = 0;
+    AssistantWebEnabled = 0;
     AutofillAddressEnabled = 0;
     AutofillCreditCardEnabled = 0;
     BlockThirdPartyCookies = 1;
     BookmarkBarEnabled = 0;
     BrowserGuestModeEnabled = 0;
     BrowserSignin = 0;
+    ClickToCallEnabled = 0;
     DefaultBrowserSettingEnabled = 0;
     DefaultGeolocationSetting = 2;
     DesktopSharingHubEnabled = 0;
     DownloadBubbleEnabled = 1;
     DownloadRestrictions = 0;
     HideWebStoreIcon = 1;
+    HistoryClustersVisible = 0;
     LastRunAppBundlePath = "/Applications/Google Chrome.app";
+    LensRegionSearchEnabled = 0;
     MediaRecommendationsEnabled = 0;
     NSNavLastRootDirectory = "~/Downloads";
     NSNavPanelExpandedSizeForOpenMode = "{800, 448}";
     NSNavPanelExpandedSizeForSaveMode = "{800, 448}";
+    NSUserKeyEquivalents =     {
+        "Email Page Location" = "";
+    };
     "NSWindow Frame NSNavPanelAutosaveName" = "-250 -248 800 448 0 0 1512 944 ";
     NTPCardsVisible = 0;
     NetworkPredictionOptions = 2;
     PaymentMethodQueryEnabled = 0;
     PromotionalTabsEnabled = 0;
     SafeBrowsingProtectionLevel = 0;
+    SharedClipboardEnabled = 0;
     ShowCastIconInToolbar = 0;
     ShowFullUrlsInAddressBar = 1;
     ShowHomeButton = 0;
@@ -30,6 +39,8 @@
     SpellCheckServiceEnabled = 0;
     SyncDisabled = 1;
     TranslateEnabled = 0;
+    UrlKeyedAnonymizedDataCollectionEnabled = 0;
+    UserAgentReduction = 2;
     UserFeedbackAllowed = 0;
     WarnBeforeQuittingEnabled = 0;
 }
