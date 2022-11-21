@@ -67,7 +67,7 @@ git commit -m "message"
 git commit
 # Modify latest commit's message (e.g., a typo).
 git commit --amend -m "fixed main.py"
- #Modify latest commit without changing the message (e.g., forgot to add a file).
+# Modify latest commit without changing the message (e.g., forgot to add a file).
 git commit --amend -m "fixed net.py and main.py"
 # Realize you forgot to add main.py
 git add main.py
