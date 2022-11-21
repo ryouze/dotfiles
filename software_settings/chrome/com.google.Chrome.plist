@@ -16,16 +16,8 @@
     DownloadRestrictions = 0;
     HideWebStoreIcon = 1;
     HistoryClustersVisible = 0;
-    LastRunAppBundlePath = "/Applications/Google Chrome.app";
     LensRegionSearchEnabled = 0;
     MediaRecommendationsEnabled = 0;
-    NSNavLastRootDirectory = "~/Downloads";
-    NSNavPanelExpandedSizeForOpenMode = "{800, 448}";
-    NSNavPanelExpandedSizeForSaveMode = "{800, 448}";
-    NSUserKeyEquivalents =     {
-        "Email Page Location" = "";
-    };
-    "NSWindow Frame NSNavPanelAutosaveName" = "-250 -248 800 448 0 0 1512 944 ";
     NTPCardsVisible = 0;
     NetworkPredictionOptions = 2;
     PaymentMethodQueryEnabled = 0;
