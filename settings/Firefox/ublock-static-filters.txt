@@ -11,5 +11,5 @@ www.youtube.com##ytd-button-renderer.ytd-masthead.style-scope
 ! Google
 ! Disable Google Lens (on mouse drag)
 google.com##+js(aeld, dragenter)
-! Disable GDP consent scroll blocker
+! Disable GDPR consent scroll blocker
 google.com##html:style(overflow: auto !important;)
