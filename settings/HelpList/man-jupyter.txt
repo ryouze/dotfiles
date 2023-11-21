@@ -1,0 +1,6 @@
+# Set monokai theme
+jt -t monokai -t monokai -T -N -kl
+# Export to HTML $PWD (dark theme)
+jupyter nbconvert --execute --to html plot.ipynb --HTMLExporter.theme=dark 
+# Reset to normal
+jt -r  

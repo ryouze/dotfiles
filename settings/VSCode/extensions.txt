@@ -1,0 +1,23 @@
+# Enter in console: $ code --list-extensions
+bbenoist.Doxygen
+fabiospampinato.vscode-monokai-night
+ms-dotnettools.csharp
+ms-dotnettools.dotnet-interactive-vscode
+ms-dotnettools.vscode-dotnet-runtime
+ms-python.black-formatter
+ms-python.flake8
+ms-python.isort
+ms-python.python
+ms-python.vscode-pylance
+ms-toolsai.jupyter
+ms-toolsai.jupyter-keymap
+ms-toolsai.jupyter-renderers
+ms-toolsai.vscode-jupyter-cell-tags
+ms-toolsai.vscode-jupyter-slideshow
+ms-vscode.cmake-tools
+ms-vscode.cpptools
+njpwerner.autodocstring
+streetsidesoftware.code-spell-checker
+twxs.cmake
+waderyan.gitblame
+yzhang.markdown-all-in-one

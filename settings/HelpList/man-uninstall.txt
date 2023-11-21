@@ -1,0 +1,22 @@
+# Binary and dock icons:
+/Applications/
+
+# Application support files:
+~/Library/Application Support
+
+# Support Caches:
+/Library/Caches/
+~/Library/Caches
+
+# Plugins:
+~/Library/Internet Plug-Ins/
+
+# Library:
+~/Library/
+
+# App preferences:
+~/Library/Preferences/
+~/Library/Application Support/CrashReporter/
+
+# App saved states:
+~/Library/Saved Application State/

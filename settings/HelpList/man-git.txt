@@ -1,0 +1,171 @@
+# [A] Configure user information.
+# // Use "--global" switch to set it system-wide
+# Set name that is attached to commits.
+git config user.name "name"
+# Set email that is attached to commits.
+git config user.email "name@mail.com" # use hidden noreply email from github
+# Display current credentials.
+git config --list
+git config user.name
+git config credential.username
+git config user.email
+# Change user account.
+# // https://stackoverflow.com/questions/22844806/how-to-change-my-git-username-in-terminal
+git config user.name <name> -> git config user.email <name> -> git config credential.username <name>
+git config credential.username <name>
+# Set default editor for writing commit messages.
+git config --global core.editor "code —wait"
+git config --global core.editor "nano"
+
+# [B] Initialize the current directory as a Git repository.
+# This creates a hidden .git directory in $PWD that contains settings, and commits history.
+git init
+# Create from scratch.
+git init
+echo "# Title" >> README.md
+git add README.md
+git commit -m "init"
+git branch -M main
+# // Remote takes two args: remote name (e.g., origin) and remote URL.
+git remote add origin https://github.com/ryouze/ryouze.git
+# // Verify new remote.
+git remote -v
+git push -u origin main
+
+# [C] Check repo status, and list changes to tracked files before commiting.
+# Full status — branch, files, etc.
+git status
+# Short status — files only.
+git status -s
+# Untracked status — untracked files only.
+git status -u
+
+# [C] Add files to the staging area (a snapshot before commit).
+# Stage a single file.
+git add file1.py
+# Stage multiple files.
+git add file1.py file2.py
+# Stage using a pattern — wildcard + .py.
+git add *.py
+# Stage everything in the current directory (except for files in .gitignore).
+git add .
+# List all staged files.
+git ls-files
+# Remove file from staging area (doesn't delete the file locally; for undoing mistakes).
+git rm --cached file1.py
+# Show changes for staged files (i.e., added using git add).
+# // It will print nothing, unless we modify a file that was already tracked.
+git diff # unstaged changes (only for staged files)
+git diff file.py
+git diff --staged # staged changes (between staged and HEAD)
+git diff HEAD  # HEAD = latest commit in current branch
+
+# [E] Commit the changes (after git add); creates a checkpoint that you can go back to.
+# Commit directly.
+git commit -m "message"
+# Open text editor, write a message, save, then commit (why would anyone do this?).
+git commit
+# Modify latest commit's message (e.g., a typo).
+git commit --amend -m "fixed main.py"
+# Modify latest commit without changing the message (e.g., forgot to add a file).
+git commit --amend -m "fixed net.py and main.py"
+# Realize you forgot to add main.py
+git add main.py
+git commit --amend --no-edit
+# View commit history (date, author, branch, etc).
+git log # use space to move forward, "q" to quit
+# View shortened commit history.
+git log --oneline
+# View commit history for a single file.
+git log file.py
+# View latest commit.
+git show HEAD # HEAD = latest commit in current branch
+# View commit by hash (find it using git log).
+git show 921a2ff
+
+# [F] Unstage files (opposite of git add).
+# git restore is new, having first come into existence in August 2019, in Git 2.23.
+# git reset is very old, having been in Git all along, dating back to before 2005.
+# Both commands have the ability to destroy unsaved work.
+# The git switch command is also new, introduced along with git restore in Git 2.23. It implements the "safe half" (do not wipe unsaved work) of git checkout; git restore implements the "unsafe half" (wipe everything).
+# Discard any uncommitted changes, and restore to the previous commit (unsafe).
+git restore file.py
+# Remove from the staging area (opposite of git add), but leave any modifications as-is (safe).
+git restore --staged file.py # Useful for undoing mistakes
+# Force-discard all changes (including untracked files; unsafe).
+git clean -fd # It's basically the git's equivalent of a nuke.
+# Restore file by commit hash (find it using git log).
+git restore --source 7173808e file.py
+
+# [G] Manage branches (main, testing, develop).
+# List all branches.
+git branch
+# Create a new branch called develop from current branch, but do NOT switch to it.
+git branch develop
+# Create a new branch called develop from current branch, then switch to it immediately.
+git checkout -b develop
+# Create a new branch called develop.
+git checkout develop
+# Switch to the develop branch (from current to develop).
+git branch develop
+# Rename the current branch to testing.
+git branch -M testing
+# Delete the testing-alpha branch.
+git branch -d testing-alpha # delete only if already merged with upstream
+git branch -D testing-alpha # force delete
+# Switch to a different branch, then download its contents.
+git branch develop
+git checkout develop
+git pull
+
+# [H] Manage remotes (Github, Gitlub, Gitea).
+# List remote repos.
+git remote
+# List remote repos & URLs.
+git remote -v
+# Add a new remote — name & URL.
+git remote add [alias] [url]
+git remote add origin https://github.com/user/my_project.git
+# Remove remote.
+git remote rm origin
+
+# [I] Uploading & downloading data.
+# Upload current branch (implicitly set to origin).
+git push
+# Upload current branch (explicitly set to origin, or any other remote).
+git push -u origin main
+git push -u upstream main
+git push -u idk main
+# Force-upload current branch (implicitly set to origin; unsafe).
+git push -u --force origin main
+# Delete remote branch.
+git push -d origin main
+# Download, but do NOT overwrite local files (safe).
+git fetch
+# Download, and overwrite local files (unsafe).
+git pull
+git pull origin
+git pull main
+# Remove all uncommitted changes and then download (nuke).
+git reset --hard HEAD
+git pull
+
+# [J] Recreate repository without history:
+# Get current origin (will be useful later).
+git config --get remote.origin.url
+# Remove old history.
+rm -rf .git
+# // Re-create repository.
+git init
+git add .
+git commit -m "init"
+# Force-push to the Github remote repository.
+git remote add origin <URL>
+git push -u --force origin main
+
+# [K] Set default upstream for private repo.
+git remote add origin "https://github.com/user/repo"
+# always pull from main instead of asking
+git pull "https://github.com/user/repo.git" main
+git config branch.main.remote origin
+git config branch.main.merge refs/heads/main
