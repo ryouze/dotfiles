@@ -10,7 +10,6 @@ alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"  # Display d
 # --- File Cleanup ---
 alias ds-remove="find . -name '.DS_Store' -print -delete"  # Recursively remove .DS_Store files (MacOS)
 alias underscore-remove="find . -type f -name '._*' -print -delete"  # Recursively remove .__ files (MacOS)
-# alias wav-remove="find . -name '*.wav' -print -delete"  # Recursively remove .wav files
 
 # --- Command Enhancements ---
 alias cat="bat --style=plain --pager=never"  # Use bat for syntax highlighting instead of cat, with no decorations or paging
@@ -32,7 +31,7 @@ from importlib.metadata import distributions;\
 from subprocess import call;\
 packages = sorted(item.name for item in distributions());\
 print(f\"Found {len(packages)} packages.\");\
-command = f\"pip install --upgrade {" ".join(packages)}\";\
+command = \"pip install --upgrade \" + \" \".join(packages);\
 print(f\"$ {command}\");\
 call(command, shell=True)"'  # Update all Python3 pip packages
 
@@ -43,7 +42,7 @@ alias man-jupyter="bat ~/.local/docs/man-jupyter.txt --style=plain --pager=never
 alias man-ssh="bat ~/.local/docs/man-ssh.txt --style=plain --pager=never -l bash"  # Display list of SSH commands
 
 # --- Functions ---
-# Search for leftovers of uninstalled program
+# Search for leftovers of uninstalled program on MacOS
 function find-leftovers() {
     if [[ -z "$1" ]]; then
         echo "Please provide a program name to search for leftovers. This is case-insensitive."

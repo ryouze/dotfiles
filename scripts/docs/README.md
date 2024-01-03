@@ -45,15 +45,10 @@ Yes, Rosetta 2 is installed.
 
 Description: a Python script that updates all pip packages at once.
 
-Logic:
-
-1) If Windows, use `pip`, otherwise use `pip3`.
-2) Get all installed pip packages, then run a shell command to update them.
-
 ```
 [~] $ python3 pip_update.py
 Found 3 packages.
-$ pip3 install --upgrade pip setuptools wheel
+$ pip install --upgrade pip setuptools wheel
 Requirement already satisfied: pip in /opt/homebrew/lib/python3.11/site-packages (23.3.1)
 Requirement already satisfied: setuptools in /opt/homebrew/lib/python3.11/site-packages (69.0.1)
 Requirement already satisfied: wheel in /opt/homebrew/lib/python3.11/site-packages (0.41.3)
