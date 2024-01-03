@@ -5,18 +5,13 @@
 # It can also be used to load shell modules, set history options, change the prompt, set up Zsh Line Editor (zle) and command completion, and so on.
 # Variables that are only used in the interactive shell (like $LS_COLORS) are also set in this file.
 
-# The following lines are configured by zsh-newuser-install
+# Configured by zsh-newuser-install
 # HISTFILE is the name of the file in which command history is saved.
 # HISTSIZE is the number of lines of command history to keep in memory.
 # SAVEHIST is the number of lines of history to save in the history file.
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-
-# zstyle is a command to define styles. Here it is used to set the filename for compinstall to '$HOME/.zshrc'.
-# This is useful when you run compinstall again, as it lets compinstall find where it has written out zstyle statements for you last time.
-# This way, you can run compinstall again to update them.
-zstyle ':compinstall' filename '$HOME/.zshrc'
 
 # The following lines set Zsh-specific options:
 # hist_expire_dups_first: When the history file size exceeds HISTSIZE, delete duplicates first.
@@ -27,49 +22,47 @@ zstyle ':compinstall' filename '$HOME/.zshrc'
 # notify: Report the status of background jobs immediately, not just before printing a prompt.
 # correctall: Try to correct all words in the line. This may be slow.
 # globdots: When performing filename generation, include filenames that start with a dot ('.').
-# autocd: Change to a directory just by typing its name, without needing to type 'cd'.
 # sharehistory: Share command history between all sessions.
-setopt hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify appendhistory notify correctall globdots autocd sharehistory
-
-# beep: If set, the shell will not beep when an error occurs.
+setopt hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify appendhistory notify correctall globdots sharehistory
 unsetopt beep
 
-# CLICOLOR and LSCOLORS are used to control the colors of the file listings output by the ls command.
+# Color settings for ls command
 export CLICOLOR=1
 export LSCOLORS="BaFxGxDxCxegedabagaced"
 
-# PROMPT is used to customize the command prompt. Here it is set to display 'HIKARI' and the current working directory.
+# Customize the command prompt
 PROMPT="%B%F{red}[%F{yellow}HIKARI:%~%F{red}] $ %b%F{white}"
 
-# Homebrew is a package manager for macOS. The following line adds Homebrew to the PATH.
+# Add Homebrew to the PATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# The EDITOR environment variable is used to specify the default text editor. Here it is set to nano.
+# Set default text editor
 export EDITOR="nano"
 
-# The following line loads custom command-line aliases from the file .zsh_aliases.
+# Load custom command-line aliases
 source ~/.zsh_aliases
 
-# The FPATH variable is used to specify directories for the shell to search for function definitions. Here it is set to include the directory for Zsh completions.
+# Add additional Zsh completions to FPATH
 FPATH=/opt/homebrew/share/zsh-completions:$FPATH
 
-# The following line enables highlighting of menu completion items when navigating with the arrow keys.
+# Enable highlighting of menu completion items
 zstyle ':completion:*' menu select
 
-# The following lines load and initialize the Zsh completion system.
-# On slow systems, checking the cached .zcompdump file to see if it must be regenerated can add a noticeable delay to Zsh startup.
+# Load and initialize the Zsh completion system
 autoload -Uz compinit
-compinit
+zstyle ':completion:*' completer _complete _approximate
+zstyle ':completion:*' max-errors 1 numeric
+zstyle ':completion:*' menu select=2
+zmodload zsh/complist
+compinit -C
 
-# The following lines configure Zsh suggestions:
-# ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE sets the maximum number of characters in the command buffer for which suggestions will be shown.
-# ZSH_AUTOSUGGEST_STRATEGY sets the suggestion strategy. Here it is set to use both history and completion.
+# Configure additional Zsh suggestions
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# The following lines add Zsh syntax highlighting to the PATH, set the maximum length for highlighting, and add extra highlighters.
+# Add Zsh syntax highlighting
 ZSH_HIGHLIGHT_MAXLENGTH=512
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-# The line below must be last command to execute!
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line cursor)
+# The following line must be the last line to execute!
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
