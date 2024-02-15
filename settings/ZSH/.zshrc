@@ -53,15 +53,21 @@ source ~/.zsh_aliases
 # Add additional Zsh completions to FPATH
 FPATH=/opt/homebrew/share/zsh-completions:$FPATH
 
-# Enable highlighting of menu completion items
-zstyle ':completion:*' menu select
-
-# Load and initialize the Zsh completion system
+# Load and initialize the Zsh completion system, load the complist module for menu completion, and set the completion styles
 autoload -Uz compinit
-zstyle ':completion:*' completer _complete _approximate
-zstyle ':completion:*' max-errors 1 numeric
-zstyle ':completion:*' menu select=2
 zmodload zsh/complist
+zstyle ':completion:*' completer _complete _approximate  # Use both exact and approximate completions
+zstyle ':completion:*' max-errors 1 numeric  # Allow up to one error for approximate matches, if the input number is not an integer
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'  # Enable case-insensitive tab completion
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"  # Use the LS_COLORS environment variable to colorize completions
+zstyle ':completion:*' rehash true  # Automatically rehash before each completion, to pick up new executables in PATH
+zstyle ':completion:*' accept-exact '*(N)'  # If there is an exact match for the completion, accept it immediately
+zstyle ':completion:*' use-cache on  # Enable caching of completions
+mkdir -p ~/.zsh/cache  # Create the cache directory if it doesn't exist
+zstyle ':completion:*' cache-path ~/.zsh/cache  # Set the path for the completion cache
+zstyle ':completion:*' menu select=2  # Start menu completion when there are 2 or more matches
+
+# Enable the completion system, using a cache file if available
 compinit -C
 
 # Configure additional Zsh suggestions
