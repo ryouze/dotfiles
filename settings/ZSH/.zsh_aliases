@@ -55,6 +55,7 @@ function find-leftovers() {
 }
 
 # --- Time Elapsed Prompt ---
+# Source: https://gist.github.com/knadh/123bca5cfdae8645db750bfb49cb44b0?permalink_comment_id=3652840#gistcomment-3652840
 zmodload zsh/datetime  # Load the datetime module to use date and time functions
 
 function prompt_preexec() {  # Executes before each command, storing the current time in seconds since the epoch
@@ -86,15 +87,7 @@ function prompt_precmd() {  # Executes after each command, calculating the elaps
     fi
 }
 
-# The following lines set Zsh-specific options:
-# nopromptbang: Disables the '!' character in the prompt from being interpreted as a history expansion character.
-# prompt{cr}: Enables the display of carriage returns in the prompt. Useful for multi-line prompts.
-# prompt{percent}: Enables the interpretation of '%' sequences in the prompt. These sequences can be used to include various information in the prompt, such as the date, time, or current directory.
-# prompt{sp}: Controls whether spaces are allowed at the beginning of prompt strings. If this option is set, leading spaces are preserved in the prompt.
-# prompt{subst}: Enables prompt string substitution. This means that any variables or command substitutions included in the prompt string are evaluated and replaced with their values each time the prompt is displayed.
-setopt nopromptbang prompt{cr,percent,sp,subst}
-
 autoload -Uz add-zsh-hook  # Load the add-zsh-hook function
 add-zsh-hook preexec prompt_preexec  # Register 'prompt_preexec' to be executed before each command
 add-zsh-hook precmd prompt_precmd  # Register 'prompt_precmd' to be executed after each command
-RPS1='%F{cyan}${prompt_elapsed_time}%F{none}'  # Set the right prompt to display the elapsed time in cyan
+RPS1='%F{cyan}${prompt_elapsed_time}%F{none}'  # Set the right prompt to display the elapsed time in cyan, requires "setopt promptsubst"
