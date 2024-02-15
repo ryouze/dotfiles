@@ -18,13 +18,21 @@ SAVEHIST=10000
 # hist_ignore_dups: Do not enter command lines into the history list if they are duplicates of the previous event.
 # hist_ignore_space: Do not save command lines that start with a space character in the history list.
 # hist_verify: Whenever the user enters a line with history expansion, don't execute the line directly; instead, perform history expansion and reload the line into the editing buffer.
-# appendhistory: Append history lines from this session to the history file.
+# appendhistory: Append history lines from this session to the history file, instead of overwriting the file.
 # notify: Report the status of background jobs immediately, not just before printing a prompt.
 # correctall: Try to correct all words in the line. This may be slow.
 # globdots: When performing filename generation, include filenames that start with a dot ('.').
 # sharehistory: Share command history between all sessions.
-setopt hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify appendhistory notify correctall globdots sharehistory
-unsetopt beep
+# extendedglob: Enable extended globbing, which allows using regular expressions with *, e.g., 'ls *(.)' to list all regular files.
+# nocaseglob: Enable case-insensitive globbing, e.g., 'ls *.txt' will match both 'file.txt' and 'FILE.TXT'.
+# rcexpandparam: Enable array expansion with parameters, e.g., 'echo $arr' will output all elements of the array 'arr'.
+# nocheckjobs: Disable the warning about running processes when exiting the shell. Without this option, if you try to exit the shell while jobs are running, you'll get a warning message.
+# numericglobsort: Sort filenames numerically when it makes sense, e.g., 'ls file*' will list 'file1', 'file2', ..., 'file10' in that order, instead of 'file1', 'file10', 'file2'.
+# nobeep: Disable the beep sound that the shell makes when it encounters an error.
+# histignorealldups: If a new command is a duplicate of an older one, the older command is removed from the history.
+# autocd: If you type the name of a directory, the shell will change to that directory, as if you had typed 'cd', e.g., typing 'usr/local' will change to '/usr/local'.
+# inc_append_history: Commands are added to the history immediately after they're executed, instead of waiting for the shell to exit.
+setopt hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify appendhistory notify correctall globdots sharehistory extendedglob nocaseglob rcexpandparam nocheckjobs numericglobsort nobeep histignorealldups autocd inc_append_history
 
 # Color settings for ls command
 export CLICOLOR=1
