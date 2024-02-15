@@ -62,8 +62,6 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"  # Use the LS_COLORS environment variable to colorize completions
 zstyle ':completion:*' rehash true  # Automatically rehash before each completion, to pick up new executables in PATH
 zstyle ':completion:*' accept-exact '*(N)'  # If there is an exact match for the completion, accept it immediately
-zstyle ':completion:*' use-cache on  # Enable caching of completions
-zstyle ':completion:*' cache-path ~/.cache/zsh  # Set the path for the completion cache
 zstyle ':completion:*' menu select=2  # Start menu completion when there are 2 or more matches
 
 # Enable the completion system, using a cache file if available
