@@ -63,8 +63,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"  # Use the LS_COLORS env
 zstyle ':completion:*' rehash true  # Automatically rehash before each completion, to pick up new executables in PATH
 zstyle ':completion:*' accept-exact '*(N)'  # If there is an exact match for the completion, accept it immediately
 zstyle ':completion:*' use-cache on  # Enable caching of completions
-mkdir -p ~/.zsh/cache  # Create the cache directory if it doesn't exist
-zstyle ':completion:*' cache-path ~/.zsh/cache  # Set the path for the completion cache
+zstyle ':completion:*' cache-path ~/.cache/zsh  # Set the path for the completion cache
 zstyle ':completion:*' menu select=2  # Start menu completion when there are 2 or more matches
 
 # Enable the completion system, using a cache file if available
