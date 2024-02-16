@@ -6,6 +6,7 @@ alias la="ls -A"  # Display all files, including hidden ones
 alias ll="ls -AlhS"  # Display all files with detailed information, sorted by size
 alias lll="stat -f '%Sp %A %N' *"  # Display file permissions in numeric format
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"  # Display directory tree
+alias cp="cp -i"  # Confirm before overwriting files
 
 # --- File Cleanup ---
 alias ds-remove="find . -name '.DS_Store' -print -delete"  # Recursively remove .DS_Store files (MacOS)
