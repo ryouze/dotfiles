@@ -58,12 +58,15 @@ function find-leftovers() {
 # --- Time Elapsed Prompt ---
 # Source: https://gist.github.com/knadh/123bca5cfdae8645db750bfb49cb44b0?permalink_comment_id=3652840#gistcomment-3652840
 zmodload zsh/datetime  # Load the datetime module to use date and time functions
+autoload -Uz add-zsh-hook  # Load the add-zsh-hook function to add hooks before and after command execution
 
-function prompt_preexec() {  # Executes before each command, storing the current time in seconds since the epoch
+# This will execute before each command, storing the current time in seconds since the epoch
+add-zsh-hook preexec () {
     prompt_prexec_realtime=${EPOCHREALTIME}
 }
 
-function prompt_precmd() {  # Executes after each command, calculating the elapsed time and formatting it for display
+# This will execute after each command, calculating the elapsed time and formatting it for display
+add-zsh-hook precmd () {
     if (( prompt_prexec_realtime )); then
         local -rF elapsed_realtime=$(( EPOCHREALTIME - prompt_prexec_realtime ))
         local -rF s=$(( elapsed_realtime%60 ))
@@ -88,7 +91,4 @@ function prompt_precmd() {  # Executes after each command, calculating the elaps
     fi
 }
 
-autoload -Uz add-zsh-hook  # Load the add-zsh-hook function
-add-zsh-hook preexec prompt_preexec  # Register 'prompt_preexec' to be executed before each command
-add-zsh-hook precmd prompt_precmd  # Register 'prompt_precmd' to be executed after each command
-RPS1='%F{cyan}${prompt_elapsed_time}%F{none}'  # Set the right prompt to display the elapsed time in cyan, requires "setopt promptsubst"
+RPS1='%F{cyan}${prompt_elapsed_time}%F{none}'  # Set the right prompt to display the elapsed time in cyan (requires "setopt promptsubst" that was set in .zshrc)
