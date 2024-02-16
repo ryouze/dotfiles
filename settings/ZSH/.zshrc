@@ -31,8 +31,7 @@ SAVEHIST=10000
 # nobeep: Disable the beep sound that the shell makes when it encounters an error.
 # histignorealldups: If a new command is a duplicate of an older one, the older command is removed from the history.
 # inc_append_history: Commands are added to the history immediately after they're executed, instead of waiting for the shell to exit.
-# promptsubst: Enable prompt string substitution. Any variables in the prompt are evaluated and replaced with their values each time the prompt is displayed, e.g., RPS1='%F{cyan}${prompt_elapsed_time}%F{none}'.
-setopt hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify appendhistory notify correctall globdots sharehistory extendedglob nocaseglob rcexpandparam nocheckjobs numericglobsort nobeep histignorealldups inc_append_history promptsubst
+setopt hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify appendhistory notify correctall globdots sharehistory extendedglob nocaseglob rcexpandparam nocheckjobs numericglobsort nobeep histignorealldups inc_append_history
 
 # Color settings for ls command
 export CLICOLOR=1
