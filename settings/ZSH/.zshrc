@@ -71,7 +71,7 @@ compinit -dC
 
 # Configure additional Zsh suggestions
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+ZSH_AUTOSUGGEST_STRATEGY=(completion match_prev_cmd history)
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Add Zsh syntax highlighting
