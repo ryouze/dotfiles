@@ -63,8 +63,11 @@ zstyle ':completion:*' rehash true  # Automatically rehash before each completio
 zstyle ':completion:*' accept-exact '*(N)'  # If there is an exact match for the completion, accept it immediately
 zstyle ':completion:*' menu select=2  # Start menu completion when there are 2 or more matches
 
-# Enable the completion system, using a cache file if available
-compinit -C
+# Enable the completion system
+# -d: Dump compinit's internal state to a cache file.
+# -C: Use a cache file if available.
+# That way, the cache file will be updated every time a new shell is started, without having to do it manually using "compinit -d".
+compinit -dC
 
 # Configure additional Zsh suggestions
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
