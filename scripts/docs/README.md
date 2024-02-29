@@ -3,12 +3,11 @@
 A collection of scripts that I use for my very specific, niche tasks.
 
 
----
+## img-rename.ps1
 
+A Powershell 5.0 script that renames all images in a directory based on their date.
 
-# img_rename.ps1
-
-Description: a Windows Powershell 5.0 script that renames all images in a directory based on their date.
+Or at least that's what I think it does. I wrote it a long time ago and t was broken the last time I tried to use it.
 
 Logic:
 
@@ -22,31 +21,30 @@ Still, it's faster than doing it manually.
 ![A screenshot of Powershell script in a Windows Terminal window](img/rename.jpg)
 
 
----
+## is-rosetta-installed.sh
 
-
-# is_rosetta_installed.sh
-
-Description: a Bash script that checks if Rosetta 2 is installed on ARM64 Macbooks.
+A Bash script that checks if Rosetta 2 is installed on ARM64 Macbooks.
 
 Rosetta 2 translates x86 software to ARM64.
 
+```bash
+./is-rosetta-installed.sh
 ```
-[~] $ ./is_rosetta_installed.sh
+
+```
 Yes, Rosetta 2 is installed.
 ```
 
 
+## pip_update.py
 
----
+A Python script that updates all pip packages at once.
 
-
-# pip_update.py
-
-Description: a Python script that updates all pip packages at once.
+```bash
+python3 pip_update.py
+```
 
 ```
-[~] $ python3 pip_update.py
 Found 3 packages.
 $ pip install --upgrade pip setuptools wheel
 Requirement already satisfied: pip in /opt/homebrew/lib/python3.11/site-packages (23.3.1)
