@@ -18,7 +18,7 @@ The low performance comes from the fact that each filename is compared against a
 
 Still, it's faster than doing it manually.
 
-![A screenshot of Powershell script in a Windows Terminal window](img/rename.jpg)
+![A screenshot of Powershell script in a Windows Terminal window](/assets/rename.jpg)
 
 
 ## is-rosetta-installed.sh
