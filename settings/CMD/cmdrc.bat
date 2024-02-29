@@ -1,3 +1,5 @@
+:: bash-like aliases for Windows Command Prompt
+
 :: Do not print aliases to console when loading
 @echo off
 
@@ -30,7 +32,7 @@ DOSKEY clear=CLS
 :: history - List previous commands
 DOSKEY history=DOSKEY /HISTORY
 :: alias - List conents of this file
-DOSKEY alias=type "%userprofile%\.cmd_aliases.bat"
+DOSKEY alias=type "%userprofile%\.cmdrc.bat"
 
 :: # Setup yt-dlp commands
 :: $ winget search yt-dlp
