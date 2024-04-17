@@ -1,0 +1,5 @@
+# Transfer files from Mac to server while not being logged into server
+scp -r my_directory server@192.168.1.130:/home/server/
+
+# List IPs connected on your network
+arp -a

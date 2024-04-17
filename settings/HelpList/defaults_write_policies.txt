@@ -1,0 +1,5 @@
+defaults write com.google.Chrome SafeBrowsingProtectionLevel -int 0
+defaults write com.google.Chrome SyncDisabled -bool true
+
+# This fixes two pages scroll in fullscreen
+defaults write com.apple.Preview PVPDFDisplayMode 3

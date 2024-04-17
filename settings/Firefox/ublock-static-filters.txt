@@ -1,0 +1,15 @@
+! YouTube
+! Disable watch later & add to queue overlays when you hover over a video
+www.youtube.com###hover-overlays
+! Disable Ambient light mode
+!www.youtube.com##.ytp-gradient-top,.ytp-gradient-bottom
+!youtube.com#$##cinematics.ytd-watch-flexy{display:none}
+youtube.com###cinematics :empty
+! Disable sign-in button in the top right corner (near settings)
+www.youtube.com##ytd-button-renderer.ytd-masthead.style-scope
+
+! Google
+! Disable Google Lens (on mouse drag)
+google.com##+js(aeld, dragenter)
+! Disable GDPR consent scroll blocker
+google.com##html:style(overflow: auto !important;)

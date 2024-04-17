@@ -1,0 +1,42 @@
+# 1. Create Brewfile in the current directory from currently-installed packages.
+# brew bundle dump
+# 2. Edit Brewfile (optional).
+# nano Brewfile
+# 3. Install everything from the Brewfile.
+# brew bundle
+# -----------
+# brew bundle may also be interesting if you are asking because you want to manage your brew installation. This includes casks, which brew list does not. It is aimed at having reproducible Homebrew setups.
+# You can use the --global flag to operate on your ~/.Brewfile and -f/--force to force overwriting of your existing file (for installation, this will force uninstallation of not-listed packages).
+# Source: https://apple.stackexchange.com/questions/101090/list-of-all-packages-installed-using-homebrew
+# -----------
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "microsoft/git"
+brew "bat"
+brew "ca-certificates"
+brew "sqlite"
+brew "xz"
+brew "python@3.11"
+brew "black"
+brew "espeak"
+brew "flake8"
+brew "nano"
+brew "neofetch"
+brew "node"
+brew "python@3.10"
+brew "wget"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+cask "anki"
+cask "git-credential-manager-core"
+cask "google-chrome"
+cask "iterm2"
+cask "libreoffice"
+cask "rectangle"
+cask "visual-studio-code"
+cask "vlc"
+cask "zoom"
+cask "zotero"
