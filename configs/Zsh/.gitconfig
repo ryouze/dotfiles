@@ -1,0 +1,12 @@
+[init]
+    defaultBranch = main
+[core]
+    editor = nano
+    excludesfile = /Users/hikari/.gitignore
+[credential]
+    username = ryouze
+    helper =
+    helper = /usr/local/share/gcm-core/git-credential-manager
+#   helper = osxkeychain
+[credential "https://dev.azure.com"]
+    useHttpPath = true

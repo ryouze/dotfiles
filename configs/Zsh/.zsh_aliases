@@ -1,0 +1,103 @@
+#!/usr/bin/env zsh
+# This script contains interactive aliases and functions for zsh
+
+# --- File and Directory Management ---
+alias la="ls -A"  # Display all files, including hidden ones
+alias ll="ls -AlhS"  # Display all files with detailed information, sorted by size
+alias lll="stat -f '%Sp %A %N' *"  # Display file permissions in numeric format
+#alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"  # Display directory tree
+alias cp="cp -i"  # Confirm before overwriting files
+
+# --- File Cleanup ---
+alias ds-remove="find . -name '.DS_Store' -print -delete"  # Recursively remove .DS_Store files (MacOS)
+alias underscore-remove="find . -type f -name '._*' -print -delete"  # Recursively remove .__ files (MacOS)
+downscale_screen_recording() {
+    input_file="$1"
+    output_file="${input_file%.*}_smaller.${input_file##*.}"
+    ffmpeg -i "$input_file" -vf "scale=trunc(iw/2/2)*2:trunc(ih/2/2)*2" -c:v libx264 -b:v 1M -c:a aac -b:a 128k "$output_file"
+}
+
+# --- Command Enhancements ---
+alias cat="bat --style=plain --pager=never"  # Use bat for syntax highlighting instead of cat, with no decorations or paging
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"  # Use bat for colored man pages
+alias grep="grep --color=auto"  # Use colored output for grep
+alias igrep="grep -i"  # Case-insensitive grep
+alias brew-deps="brew leaves | xargs brew deps --include-build --tree"  # Brew dependencies
+
+# --- System and Network ---
+alias reload="source ~/.zshrc"  # Reload zshrc configuration file
+alias launchpad-restore="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"  # Restore default Launchpad order (MacOS)
+alias find-local-devices="arp -a"  # Display all devices on local network
+alias internet-test="while true; do networkQuality; done"  # Continuously test network speed
+
+# --- Development ---
+alias vscode-settings="cd ~/Library/Application\ Support/Code/User/ && ls -A"  # Navigate to VS Code settings directory
+alias http-start="python3 -m http.server"  # Start HTTP server in current directory
+alias pip-update="pip3 install --upgrade \$(python3 -c 'from importlib.metadata import distributions; print(\" \".join(sorted(dist.name for dist in distributions())))')"  # Update all Python3 pip packages
+alias glog="git log --oneline"
+alias hwr="find . -name \"*.cpp\" -o -name \"*.hpp\" -o -name \"*.h\" | xargs header-warden"
+function sbuild() {
+    if [[ "$(basename "$PWD")" != "build" ]]; then
+        mkdir -p build
+        cd build || { echo "Failed to change directory to build"; return 1; }
+    fi
+    cmake .. -DCMAKE_BUILD_TYPE=Debug
+}
+alias remove-quarantine="sudo xattr -r -d com.apple.quarantine"
+
+# --- Documentation ---
+alias man-git="bat ~/.local/docs/man-git.txt --style=plain --pager=never -l bash"  # Display list of git commands
+alias man-venv="bat ~/.local/docs/man-venv.txt --style=plain --pager=never -l bash"  # Display list of Python virtual environment commands
+alias man-jupyter="bat ~/.local/docs/man-jupyter.txt --style=plain --pager=never -l bash"  # Display list of Jupyter notebook commands
+alias man-ssh="bat ~/.local/docs/man-ssh.txt --style=plain --pager=never -l bash"  # Display list of SSH commands
+
+# --- Functions ---
+# Search for leftovers of uninstalled program on MacOS
+function find-leftovers() {
+    if [[ -z "$1" ]]; then
+        echo "Please provide a program name to search for leftovers. This is case-insensitive."
+        return 1
+    fi
+    local search_string="$1"
+    echo "Searching for leftovers of '$search_string'..."
+    find /Library -type d -iname "*${search_string}*" 2>/dev/null
+    find ~/Library -type d -iname "*${search_string}*" 2>/dev/null
+}
+
+# --- Time Elapsed Prompt ---
+# Source: https://gist.github.com/knadh/123bca5cfdae8645db750bfb49cb44b0?permalink_comment_id=3652840#gistcomment-3652840
+# zmodload zsh/datetime  # Load the datetime module to use date and time functions
+# autoload -Uz add-zsh-hook  # Load the add-zsh-hook function to add hooks before and after command execution
+
+# # This will execute before each command, storing the current time in seconds since the epoch
+# add-zsh-hook preexec () {
+#     prompt_prexec_realtime=${EPOCHREALTIME}
+# }
+
+# # This will execute after each command, calculating the elapsed time and formatting it for display
+# add-zsh-hook precmd () {
+#     if (( prompt_prexec_realtime )); then
+#         local -rF elapsed_realtime=$(( EPOCHREALTIME - prompt_prexec_realtime ))
+#         local -rF s=$(( elapsed_realtime%60 ))
+#         local -ri elapsed_s=${elapsed_realtime}
+#         local -ri m=$(( (elapsed_s/60)%60 ))
+#         local -ri h=$(( elapsed_s/3600 ))
+#         if (( h > 0 )); then
+#             printf -v prompt_elapsed_time '%ih%im' ${h} ${m}
+#         elif (( m > 0 )); then
+#             printf -v prompt_elapsed_time '%im%is' ${m} ${s}
+#         elif (( s >= 10 )); then
+#             printf -v prompt_elapsed_time '%.2fs' ${s} # 12.34s
+#         elif (( s >= 1 )); then
+#             printf -v prompt_elapsed_time '%.3fs' ${s} # 1.234s
+#         else
+#             printf -v prompt_elapsed_time '%ims' $(( s*1000 ))
+#         fi
+#         unset prompt_prexec_realtime
+#     else
+#         # Clear previous result when hitting ENTER with no command to execute
+#         unset prompt_elapsed_time
+#     fi
+# }
+
+# RPS1='%F{cyan}${prompt_elapsed_time}%F{none}'  # Set the right prompt to display the elapsed time in cyan (requires "setopt promptsubst" that was set in .zshrc)

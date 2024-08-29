@@ -1,0 +1,67 @@
+{
+  "policies": {
+    "ManagedBookmarks": [],
+    "DisableFeedbackCommands": true,
+    "DisableFirefoxAccounts": true,
+    "DisableFirefoxScreenshots": true,
+    "DisableFirefoxStudies": true,
+    "DisablePocket": true,
+    "DisableProfileImport": true,
+    "DisableSetDesktopBackground": true,
+    "DisableTelemetry": true,
+    "DisplayBookmarksToolbar": false,
+    "DontCheckDefaultBrowser": true,
+    "FirefoxHome": {
+      "Search": true,
+      "TopSites": true,
+      "SponsoredTopSites": false,
+      "Highlights": true,
+      "Pocket": false,
+      "SponsoredPocket": false,
+      "Snippets": false
+    },
+    "Homepage": {
+      "Locked": false,
+      "Additional": [],
+      "StartPage": "previous-session"
+    },
+    "NetworkPrediction": false,
+    "NoDefaultBookmarks": true,
+    "OfferToSaveLoginsDefault": false,
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "Permissions": {
+      "Camera": {
+        "BlockNewRequests": true
+      },
+      "Microphone": {
+        "BlockNewRequests": true
+      },
+      "Location": {
+        "BlockNewRequests": true
+      },
+      "Notifications": {
+        "BlockNewRequests": true
+      },
+      "Autoplay": {
+        "Default": "block-audio-video"
+      }
+    },
+    "PictureInPicture": {
+      "Enabled": true
+    },
+    "PromptForDownloadLocation": false,
+    "RequestedLocales": [
+      "en-US",
+      "en"
+    ],
+    "ShowHomeButton": false,
+    "UserMessaging": {
+      "ExtensionRecommendations": false,
+      "FeatureRecommendations": false,
+      "UrlbarInterventions": false,
+      "SkipOnboarding": true,
+      "MoreFromMozilla": false
+    }
+  }
+}
