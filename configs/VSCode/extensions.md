@@ -2,7 +2,7 @@
 
 Use the following command to list all the extensions:
 
-```bash
+```sh
 code --list-extensions
 ```
 

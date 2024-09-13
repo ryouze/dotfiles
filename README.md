@@ -5,7 +5,7 @@ dotfiles is a collection of configuration files for various tools and applicatio
 
 ## Directory Structure
 
-```bash
+```sh
 [~/dotfiles] $ tree -a -I ".git"
 .
 ├── LICENSE
