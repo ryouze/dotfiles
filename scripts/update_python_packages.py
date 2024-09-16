@@ -1,9 +1,9 @@
-import sys
 from importlib.metadata import distributions
 from subprocess import run
+from sys import platform
 
 # Determine the pip command based on the operating system
-pip_command: str = "pip" if sys.platform == "win32" else "pip3"
+pip_command: str = "pip" if platform == "win32" else "pip3"
 
 # Get all installed packages sorted by name
 packages: list[str] = sorted(dist.name for dist in distributions())
