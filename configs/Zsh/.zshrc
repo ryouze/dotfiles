@@ -54,6 +54,7 @@ source ~/.zsh_aliases
 
 # Add additional Zsh completions to FPATH
 FPATH=/opt/homebrew/share/zsh-completions:$FPATH
+#fpath+=~/.zfunc  # Poetry (Python)
 
 # Load and initialize the Zsh completion system, load the complist module for menu completion, and set the completion styles
 autoload -Uz compinit
@@ -76,6 +77,8 @@ compinit -dC
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_STRATEGY=(completion match_prev_cmd history)
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+#eval "$(register-python-argcomplete pipx)" # Pipx (Python)
 
 # Add Zsh syntax highlighting
 ZSH_HIGHLIGHT_MAXLENGTH=512
