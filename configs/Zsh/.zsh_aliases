@@ -1,57 +1,66 @@
 #!/usr/bin/env zsh
-# This script contains interactive aliases and functions for zsh
+# Interactive aliases and functions for zsh
 
 # --- File and Directory Management ---
-alias la="ls -A"  # Display all files, including hidden ones
+alias la="ls -A"     # Display all files, including hidden ones
 alias ll="ls -AlhS"  # Display all files with detailed information, sorted by size
-alias lll="stat -f '%Sp %A %N' *"  # Display file permissions in numeric format
-alias cp="cp -i"  # Confirm before overwriting files
+alias cp="cp -i"     # Confirm before overwriting files
 alias stat="stat -x"
 
 # --- File Cleanup ---
-alias ds-remove="find . -name '.DS_Store' -print -delete 2>/dev/null"  # Recursively remove .DS_Store files (MacOS)
-alias underscore-remove="find . -type f -name '._*' -print -delete 2>/dev/null"  # Recursively remove .__ files (MacOS)
+alias ds-remove="find . -name '.DS_Store' -print -delete 2>/dev/null"
+alias underscore-remove="find . -type f -name '._*' -print -delete 2>/dev/null"
 alias pycache-remove="find . -name \"__pycache__\" -type d -exec rm -r {} + 2>/dev/null"
-downscale_screen_recording() {
-    input_file="$1"
-    output_file="${input_file%.*}_smaller.${input_file##*.}"
-    ffmpeg -i "$input_file" -vf "scale=trunc(iw/2/2)*2:trunc(ih/2/2)*2" -c:v libx264 -b:v 1M -c:a aac -b:a 128k "$output_file"
-}
+# function downscale-screen-recording() {
+#     input_file="$1"
+#     output_file="${input_file%.*}_smaller.${input_file##*.}"
+#     ffmpeg -i "$input_file" -vf "scale=trunc(iw/2/2)*2:trunc(ih/2/2)*2" -c:v libx264 -b:v 1M -c:a aac -b:a 128k "$output_file"
+# }
 alias find-txt="find . -type f -name '*.txt' 2>/dev/null"
 
 # --- Command Enhancements ---
-alias cat="bat --style=plain --pager=never"  # Use bat for syntax highlighting instead of cat, with no decorations or paging
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"  # Use bat for colored man pages
-alias grep="grep --color=auto"  # Use colored output for grep
-alias igrep="grep -i"  # Case-insensitive grep
-alias brew-deps="brew leaves | xargs brew deps --include-build --tree"  # Brew dependencies
+alias cat="bat --style=plain --pager=never"        # Syntax highlighting without decorations and paging
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"  # Colored man pages
+alias grep="grep --color=auto"
+alias igrep="grep -i"
+alias brew-deps="brew leaves | xargs brew deps --include-build --tree"  # All Homebrew dependencies
 alias brew-outdated="brew outdated --quiet | tr '\n' ' '"
-alias syu="brew upgrade --cask --greedy"
 
 # --- System and Network ---
-alias reload="source ~/.zshrc"  # Reload zshrc configuration file
-alias launchpad-restore="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"  # Restore default Launchpad order (MacOS)
-alias find-local-devices="arp -a"  # Display all devices on local network
-alias internet-test="while true; do networkQuality; done"  # Continuously test network speed
+alias reload="source ~/.zshrc"
+alias launchpad-restore="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"  # Restore default macOS Launchpad order
+#alias find-local-devices="arp -a"                          # Display all devices on local network
+alias internet-test="while true; do networkQuality; done"  # Continuously macOS test network speed
 
 # --- Development ---
-alias vscode-settings="cd ~/Library/Application\ Support/Code/User/ && ls -A"  # Navigate to VS Code settings directory
+#alias vscode-settings="cd ~/Library/Application\ Support/Code/User/ && ls -A"
 alias http-start="python3 -m http.server"  # Start HTTP server in current directory
-alias pip-update="pip3 install --upgrade \$(python3 -c 'from importlib.metadata import distributions; print(\" \".join(sorted(dist.name for dist in distributions())))')"  # Update all Python3 pip packages
+alias pip-update="pip3 install --upgrade \$(python3 -c 'from importlib.metadata import distributions; print(\" \".join(sorted(dist.name for dist in distributions())))')"
 alias glog="git log --oneline"
 alias hwr="header-warden --no-bare"
+function git-revert() {
+    # Revert file to a commit
+    if [ $# -ne 2 ]; then
+        echo "Usage: git-revert <file-path> <commit-hash> "
+        return 1
+    fi
+    local file="$1"
+    local commit="$2"
+    git checkout "${commit}^" -- "$file" && \
+    git add "$file" && \
+    git commit -m "Revert changes to $file from $commit"
+}
 
 # --- Documentation ---
-alias man-git="bat ~/.local/docs/man-git.txt --style=plain --pager=never -l bash"  # Display list of git commands
-alias man-venv="bat ~/.local/docs/man-venv.txt --style=plain --pager=never -l bash"  # Display list of Python virtual environment commands
-alias man-jupyter="bat ~/.local/docs/man-jupyter.txt --style=plain --pager=never -l bash"  # Display list of Jupyter notebook commands
-alias man-ssh="bat ~/.local/docs/man-ssh.txt --style=plain --pager=never -l bash"  # Display list of SSH commands
+alias man-git="bat ~/.local/docs/git.txt --style=plain --pager=never -l bash"    # List of git commands
+alias man-venv="bat ~/.local/docs/venv.txt --style=plain --pager=never -l bash"  # List of Python virtual environment commands
+alias man-ssh="bat ~/.local/docs/ssh.txt --style=plain --pager=never -l bash"    # List of SSH commands
 
 # --- Functions ---
-# Search for leftovers of uninstalled program on MacOS
 function find-leftovers() {
+    # Search for leftovers of uninstalled program on MacOS
     if [[ -z "$1" ]]; then
-        echo "Please provide a program name to search for leftovers. This is case-insensitive."
+        echo "Usage: find-leftovers <case-insensitive-program-name>"
         return 1
     fi
     local search_string="$1"
