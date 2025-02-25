@@ -34,7 +34,7 @@ dotfiles is a collection of configuration files for various tools and applicatio
 │       └── .zshrc
 └── scripts
     ├── is_rosetta_installed.sh
-    └── update_python_packages.py.py
+    └── update_python_packages.py
 ```
 
 
