@@ -5,7 +5,11 @@
         "editor.suggest.insertMode": "replace",
         "editor.wordBasedSuggestions": "off"
     },
+    "[makefile]": {
+        "editor.insertSpaces": false
+    },
     "[python]": {
+        "diffEditor.ignoreTrimWhitespace": true,
         "editor.codeActionsOnSave": {
             "source.fixAll": "explicit",
             "source.organizeImports": "explicit"
@@ -14,10 +18,11 @@
         "editor.formatOnSave": true
     },
     "autoDocstring.generateDocstringOnEnter": false,
-    "autoDocstring.includeExtendedSummary": true,
     "autoDocstring.startOnNewLine": true,
     "C_Cpp.clang_format_sortIncludes": true,
     "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, IndentWidth: 4, BreakBeforeBraces: Stroustrup, ColumnLimit: 0, SpacesBeforeTrailingComments: 2, PointerAlignment: Right }",
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "C_Cpp.default.cppStandard": "c++17",
     "C_Cpp.default.cStandard": "c17",
     "C_Cpp.doxygen.generatedStyle": "/**",
@@ -28,6 +33,8 @@
     "C_Cpp.inlayHints.parameterNames.suppressWhenArgumentContainsName": false,
     "C_Cpp.inlayHints.referenceOperator.enabled": true,
     "C_Cpp.vcFormat.newLine.beforeOpenBrace.namespace": "newLine",
+    "C_Cpp.vcpkg.enabled": false,
+    "chat.commandCenter.enabled": false,
     "cmake.configureOnEdit": false,
     "cmake.configureOnOpen": false,
     "cmake.launchBehavior": "breakAndReuseTerminal",
@@ -54,10 +61,11 @@
     "cmake.showOptionsMovedNotification": false,
     "cSpell.diagnosticLevel": "Hint",
     "cSpell.language": "en,en-US",
+    "cSpell.useCustomDecorations": false,
     "css.format.spaceAroundSelectorSeparator": true,
-    "diffEditor.ignoreTrimWhitespace": false,
+    "debug.showVariableTypes": true,
+    "diffEditor.ignoreTrimWhitespace": true,
     "diffEditor.renderSideBySide": true,
-    "dotnetAcquisitionExtension.enableTelemetry": false,
     "doxdocgen.c.factoryMethodText": "Create a {name} object.",
     "doxdocgen.c.getterText": "Get the {name} object.",
     "doxdocgen.c.setterText": "Set the {name} object.",
@@ -99,10 +107,12 @@
     "editor.tabCompletion": "on",
     "editor.tabSize": 4,
     "editor.wordWrap": "on",
+    "explorer.autoOpenDroppedFile": false,
     "explorer.compactFolders": false,
     "explorer.confirmUndo": "verbose",
     "extensions.autoUpdate": "onlyEnabledExtensions",
     "files.autoSave": "afterDelay",
+    "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
@@ -111,14 +121,21 @@
         "--ignore=E203,E231,E262,E265,E501,W503,E722"
     ],
     "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.openRepositoryInParentFolders": "never",
+    "git.replaceTagsWhenPull": true,
     "gitblame.inlineMessageEnabled": true,
     "gitblame.inlineMessageFormat": "// ${author.name}: \"${commit.summary}\" (${time.ago})",
     "gitblame.inlineMessageMargin": 8,
     "gitblame.statusBarMessageClickAction": "Open git show",
     "gitblame.statusBarMessageFormat": "${author.name}: \"${commit.summary}\" (${time.ago})",
     "github.copilot.advanced": {},
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+        {
+            "text": "Use very short messages with a verb in past tense, e.g., `Improved CLI help message.`"
+        }
+    ],
     "github.copilot.chat.localeOverride": "en",
-    "github.copilot.chat.welcomeMessage": "always",
     "github.copilot.editor.enableAutoCompletions": true,
     "github.copilot.enable": {
         "*": true,
@@ -126,10 +143,17 @@
         "plaintext": true,
         "scminput": false
     },
+    "go.inlayHints.assignVariableTypes": true,
+    "go.inlayHints.compositeLiteralFields": true,
+    "go.inlayHints.compositeLiteralTypes": true,
+    "go.inlayHints.constantValues": true,
+    "go.inlayHints.functionTypeParameters": true,
+    "go.inlayHints.parameterNames": true,
+    "go.inlayHints.rangeVariableTypes": true,
     "html.format.indentHandlebars": true,
     "html.format.indentInnerHtml": true,
     "html.format.wrapLineLength": 0,
-    "json.sortOnSave.enable": true,
+    "javascript.preferences.quoteStyle": "double",
     "jupyter.askForKernelRestart": false,
     "jupyter.disableJupyterAutoStart": true,
     "jupyter.experiments.enabled": false,
@@ -183,11 +207,10 @@
     "remote.autoForwardPorts": false,
     "ruff.importStrategy": "useBundled",
     "ruff.lint.extendSelect": [
-        "UP",
-        "D",
-        "ALL"
+        "UP"
+        // "D",
+        // "ALL"
     ],
-    "ruff.lint.run": "onSave",
     "search.showLineNumbers": true,
     "search.smartCase": true,
     "security.workspace.trust.enabled": false,
@@ -196,7 +219,8 @@
         "editor.fontFamily",
         "editor.fontSize",
         "editor.inlayHints.fontSize",
-        "editor.fontWeight"
+        "editor.fontWeight",
+        "terminal.integrated.fontFamily"
     ],
     "telemetry.telemetryLevel": "error",
     "terminal.external.osxExec": "iTerm.app",
@@ -205,15 +229,35 @@
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorWidth": 2,
+    "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.enablePersistentSessions": true,
     "terminal.integrated.hideOnStartup": "whenEmpty",
     "terminal.integrated.tabs.showActions": "always",
+    "typescript.preferences.quoteStyle": "double",
     "update.mode": "start",
+    "update.showReleaseNotes": false,
+    "window.customTitleBarVisibility": "auto",
     "window.nativeTabs": true,
     "window.newWindowDimensions": "maximized",
     "window.restoreFullscreen": true,
     "window.restoreWindows": "all",
     "workbench.activityBar.location": "top",
+    "workbench.colorCustomizations": {
+        // Border color for the lines that are unchanged
+        "diffEditor.diagonalFill": "#444444", // Adjust as per the visibility you need
+        // Border color for added lines
+        "diffEditor.insertedLineBackground": "#14462088",
+        // Background color for added lines
+        "diffEditor.insertedTextBackground": "#14462088", // A greenish background with transparency
+        // Text color for added lines
+        "diffEditor.insertedTextForeground": "#FFFFFF", // White text for better visibility
+        // Border color for removed lines
+        "diffEditor.removedLineBackground": "#6F131F88",
+        // Background color for removed lines
+        "diffEditor.removedTextBackground": "#6F131F88", // A reddish background with transparency
+        // Text color for removed lines
+        "diffEditor.removedTextForeground": "#FFFFFF" // White text for better visibility
+    },
     "workbench.colorTheme": "Monokai Night",
     "workbench.commandPalette.preserveInput": true,
     "workbench.editor.enablePreview": false,
@@ -222,15 +266,9 @@
     "workbench.editor.pinnedTabsOnSeparateRow": true,
     "workbench.editor.restoreViewState": true,
     "workbench.editor.tabActionCloseVisibility": false,
-    "workbench.editor.tabCloseButton": "off",
     "workbench.enableExperiments": false,
     "workbench.iconTheme": "vscode-great-icons",
     "workbench.productIconTheme": "macos-modern",
     "workbench.sideBar.location": "right",
-    "workbench.startupEditor": "newUntitledFile",
-    "explorer.autoOpenDroppedFile": false,
-    "debug.showVariableTypes": true,
-    "git.enableSmartCommit": true,
-    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
-    "git.openRepositoryInParentFolders": "never"
+    "workbench.startupEditor": "newUntitledFile"
 }
