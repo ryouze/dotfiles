@@ -41,14 +41,14 @@ alias hwr="header-warden --no-bare"
 function git-revert() {
     # Revert file to a commit
     if [ $# -ne 2 ]; then
-        echo "Usage: git-revert <file-path> <commit-hash> "
+        echo "Usage: git-revert <file-path> <commit-hash>"
         return 1
     fi
     local file="$1"
     local commit="$2"
     git checkout "${commit}^" -- "$file" && \
     git add "$file" && \
-    git commit -m "Revert changes to $file from $commit"
+    git commit -m "Revert to $commit."
 }
 
 # --- Documentation ---
