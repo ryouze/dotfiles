@@ -25,20 +25,23 @@ SAVEHIST=10000
 # sharehistory: Share command history between all sessions.
 # extendedglob: Enable extended globbing, which allows using regular expressions with *, e.g., 'ls *(.)' to list all regular files.
 # nocaseglob: Enable case-insensitive globbing, e.g., 'ls *.txt' will match both 'file.txt' and 'FILE.TXT'.
-# rcexpandparam: Enable array expansion with parameters, e.g., 'echo $arr' will output all elements of the array 'arr'.
+# rc_expand_param: Enable array expansion with parameters, e.g., 'echo $arr' will output all elements of the array 'arr'.
 # nocheckjobs: Disable the warning about running processes when exiting the shell. Without this option, if you try to exit the shell while jobs are running, you'll get a warning message.
 # numericglobsort: Sort filenames numerically when it makes sense, e.g., 'ls file*' will list 'file1', 'file2', ..., 'file10' in that order, instead of 'file1', 'file10', 'file2'.
 # nobeep: Disable the beep sound that the shell makes when it encounters an error.
-# histignorealldups: If a new command is a duplicate of an older one, the older command is removed from the history.
+# hist_ignore_all_dups: If a new command is a duplicate of an older one, the older command is removed from the history.
 # inc_append_history: Commands are added to the history immediately after they're executed, instead of waiting for the shell to exit.
-setopt hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify appendhistory notify correctall globdots sharehistory extendedglob nocaseglob rcexpandparam nocheckjobs numericglobsort nobeep histignorealldups inc_append_history
+setopt hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify appendhistory notify correctall globdots sharehistory extendedglob nocaseglob rc_expand_param nocheckjobs numericglobsort nobeep hist_ignore_all_dups inc_append_history
+
+# Deduplicate PATH and fpath entries to avoid repeated directories
+typeset -U path fpath
 
 # Color settings for ls command
 export CLICOLOR=1
 export LSCOLORS="BaFxGxDxCxegedabagaced"
 
 # Customize the command prompt
-PROMPT="%B%F{red}[%F{yellow}HIKARI:%~%F{red}] $ %b%F{white}"
+PROMPT='%B%F{red}[%F{yellow}HIKARI:%~%F{red}] $ %b%f'
 
 # Add Homebrew to the PATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
