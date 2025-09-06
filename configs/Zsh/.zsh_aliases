@@ -11,11 +11,11 @@ alias stat="stat -x"
 alias ds-remove="find . -name '.DS_Store' -print -delete 2>/dev/null"
 alias underscore-remove="find . -type f -name '._*' -print -delete 2>/dev/null"
 alias pycache-remove="find . -name \"__pycache__\" -type d -exec rm -r {} + 2>/dev/null"
-# function downscale-screen-recording() {
-#     input_file="$1"
-#     output_file="${input_file%.*}_smaller.${input_file##*.}"
-#     ffmpeg -i "$input_file" -vf "scale=trunc(iw/2/2)*2:trunc(ih/2/2)*2" -c:v libx264 -b:v 1M -c:a aac -b:a 128k "$output_file"
-# }
+function downscale-screen-recording() {
+    input_file="$1"
+    output_file="${input_file%.*}_smaller.${input_file##*.}"
+    ffmpeg -i "$input_file" -vf "scale=trunc(iw/2/2)*2:trunc(ih/2/2)*2" -c:v libx264 -b:v 1M -c:a aac -b:a 128k "$output_file"
+}
 alias find-txt="find . -type f -name '*.txt' 2>/dev/null"
 
 # --- Command Enhancements ---
