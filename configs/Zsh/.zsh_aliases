@@ -1,45 +1,52 @@
 #!/usr/bin/env zsh
-# Interactive aliases and functions for zsh
 
-# --- File and Directory Management ---
-alias la="ls -A"     # Display all files, including hidden ones
+##### File and Directory Management
+alias la="ls -A"  # Display all files, including hidden ones
 alias ll="ls -AlhS"  # Display all files with detailed information, sorted by size
-alias cp="cp -i"     # Confirm before overwriting files
-alias stat="stat -x"
+alias cp="cp -i"  # Require confirmation before overwriting files
+alias stat="stat -x"  # Ensure detailed, human-readable output
 
-# --- File Cleanup ---
+##### File Cleanup
 alias ds-remove="find . -name '.DS_Store' -print -delete 2>/dev/null"
 alias underscore-remove="find . -type f -name '._*' -print -delete 2>/dev/null"
 alias pycache-remove="find . -name \"__pycache__\" -type d -exec rm -r {} + 2>/dev/null"
-function downscale-screen-recording() {
-    input_file="$1"
-    output_file="${input_file%.*}_smaller.${input_file##*.}"
-    ffmpeg -i "$input_file" -vf "scale=trunc(iw/2/2)*2:trunc(ih/2/2)*2" -c:v libx264 -b:v 1M -c:a aac -b:a 128k "$output_file"
-}
-alias find-txt="find . -type f -name '*.txt' 2>/dev/null"
 
-# --- Command Enhancements ---
-alias cat="bat --style=plain --pager=never"        # Syntax highlighting without decorations and paging
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"  # Colored man pages
-alias grep="grep --color=auto"
-alias igrep="grep -i"
-alias brew-deps="brew leaves | xargs brew deps --include-build --tree"  # All Homebrew dependencies
-alias brew-outdated="brew outdated --quiet | tr '\n' ' '"
+##### Command Enhancements
+alias cat="bat --style=plain --pager=never"  # Use bat as cat with no decorations and no paging
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"  # Render man pages with preserved formatting and bat highlighting
+alias grep="grep --color=auto"  # Colorized grep output when supported
+alias igrep="grep -i"  # Case-insensitive grep
+alias brew-deps="brew leaves | xargs brew deps --include-build --tree"  # Show dependency trees for all top-level Homebrew packages
+alias brew-outdated="brew outdated --quiet | tr '\n' ' '"  # Print outdated Homebrew formulae on one line (for running brew upgrade on specific packages)
 
-# --- System and Network ---
-alias reload="source ~/.zshrc"
-alias launchpad-restore="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"  # Restore default macOS Launchpad order
-#alias find-local-devices="arp -a"                          # Display all devices on local network
-alias internet-test="while true; do networkQuality; done"  # Continuously macOS test network speed
+##### System and Network
+alias reload="source ~/.zshrc"  # Reload zsh configuration
+alias launchpad-restore="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"  # Restore default macOS Launchpad layout
+#alias find-local-devices="arp -a"  # Display all devices on local network
+alias internet-test="while true; do networkQuality; done"  # Continuously run macOS networkQuality
 
-# --- Development ---
-#alias vscode-settings="cd ~/Library/Application\ Support/Code/User/ && ls -A"
-alias http-start="python3 -m http.server"  # Start HTTP server in current directory
-alias pip-update="pip3 install --upgrade \$(python3 -c 'from importlib.metadata import distributions; print(\" \".join(sorted(dist.name for dist in distributions())))')"
+##### Development
+#alias vscode-settings="cd ~/Library/Application Support/Code/User/ && ls -A"  # Jump to VS Code user settings directory
+#alias http-start="python3 -m http.server"  # Start a simple HTTP server in the current directory
+alias pip-update="pip3 install --upgrade \$(python3 -c 'from importlib.metadata import distributions; print(\" \".join(sorted(dist.name for dist in distributions())))')"  # Upgrade all installed Python packages
 alias glog="git log --oneline"
 alias hwr="header-warden --no-bare"
-function git-revert() {
-    # Revert file to a commit
+
+##### Documentation
+alias man-git="bat ~/.local/docs/git.txt --style=plain --pager=never -l bash"
+alias man-venv="bat ~/.local/docs/venv.txt --style=plain --pager=never -l bash"
+alias man-ssh="bat ~/.local/docs/ssh.txt --style=plain --pager=never -l bash"
+
+##### Functions
+downscale-screen-recording() {
+    # Downscale a screen recording by half and re-encode to H.264/AAC; outputs <name>_smaller.<ext>
+    local input_file="$1"
+    local output_file="${input_file%.*}_smaller.${input_file##*.}"
+    ffmpeg -i "$input_file" -vf "scale=trunc(iw/2/2)*2:trunc(ih/2/2)*2" -c:v libx264 -b:v 1M -c:a aac -b:a 128k "$output_file"
+}
+
+git-revert() {
+    # Revert a single file to the contents from a specific commit and commit the change
     if [ $# -ne 2 ]; then
         echo "Usage: git-revert <file-path> <commit-hash>"
         return 1
@@ -51,14 +58,8 @@ function git-revert() {
     git commit -m "Revert to $commit."
 }
 
-# --- Documentation ---
-alias man-git="bat ~/.local/docs/git.txt --style=plain --pager=never -l bash"    # List of git commands
-alias man-venv="bat ~/.local/docs/venv.txt --style=plain --pager=never -l bash"  # List of Python virtual environment commands
-alias man-ssh="bat ~/.local/docs/ssh.txt --style=plain --pager=never -l bash"    # List of SSH commands
-
-# --- Functions ---
-function find-leftovers() {
-    # Search for leftovers of uninstalled program on MacOS
+find-leftovers() {
+    # Search for leftover files and directories related to a given program name
     if [[ -z "$1" ]]; then
         echo "Usage: find-leftovers <case-insensitive-program-name>"
         return 1
