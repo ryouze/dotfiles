@@ -42,6 +42,7 @@ PROMPT="%B%F{red}[%F{yellow}HIKARI:%~%F{red}] $ %b%F{white}"
 
 # Add Homebrew to the PATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
+#export HOMEBREW_NO_AUTO_UPDATE=1  # Disable auto-update
 
 # Set default text editor
 export EDITOR="nano"
@@ -80,8 +81,17 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #eval "$(register-python-argcomplete pipx)" # Pipx (Python)
 
+# Add fzf keybindings without the extras
+#source <(fzf --zsh)
+source $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
+
 # Add Zsh syntax highlighting
 ZSH_HIGHLIGHT_MAXLENGTH=512
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line cursor)
 # The following line must be the last line to execute!
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/hikari/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
