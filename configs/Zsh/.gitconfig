@@ -2,7 +2,7 @@
     defaultBranch = main
 [core]
     editor = nano
-    excludesfile = /Users/hikari/.config/git/ignore
+    excludesfile = ~/.gitignore
 [user]
     name = ryouze
     email = 98982999+ryouze@users.noreply.github.com
