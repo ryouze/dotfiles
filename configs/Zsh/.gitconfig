@@ -2,28 +2,27 @@
     defaultBranch = main
 [core]
     editor = nano
-    excludesfile = /Users/hikari/.gitignore
+    excludesfile = ~/.config/git/ignore
 [credential]
-    username = ryouze
-    helper =
-    helper = /usr/local/share/gcm-core/git-credential-manager
-#   helper = osxkeychain
-[credential "https://dev.azure.com"]
-    useHttpPath = true
+    #username = ryouze
+    #helper = osxkeychain
+    #helper = /usr/local/share/gcm-core/git-credential-manager
+    helper = manager  # Use Git Credential Manager
 [user]
     name = ryouze
-    credential = ryouze
+    #credential = ryouze
     email = 98982999+ryouze@users.noreply.github.com
-[http]
-    postBuffer = 524288000
-[pull]
-    rebase = true
-[filter "lfs"]
-    process = git-lfs filter-process
-    required = true
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
+# [pull]
+#     rebase = true  # Always rebase when pulling instead of creating merge commits
 [help]
-    autocorrect = prompt
-[merge]
-    ff = false
+    autocorrect = prompt  # Prompt before auto-correcting mistyped Git commands
+# [merge]
+#     conflictStyle = zdiff3  # Use improved conflict style with base, local, and remote context
+#     ff = only  # Allow only fast-forward merges; block unnecessary merge commits
+# [rebase]
+#     autosquash = true  # Automatically reorder fixup/squash commits during rebase
+#     autostash = true  # Automatically stash uncommitted changes before rebase, then restore them
+#     updateRefs = true  # Update branches that were rebased to track new commit hashes
+[fetch]
+    prune = true  # Automatically remove remote-tracking branches that no longer exist
+    pruneTags = true  # Automatically remove remote tags that no longer exist
