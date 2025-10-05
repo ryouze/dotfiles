@@ -23,9 +23,16 @@
     "breadcrumbs.symbolPath": "off",
     "C_Cpp.clang_format_sortIncludes": true,
     "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, IndentWidth: 4, BreakBeforeBraces: Stroustrup, ColumnLimit: 0, SpacesBeforeTrailingComments: 2, PointerAlignment: Right }",
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
+        "bugprone-*",
+        "cppcoreguidelines-*",
+        "modernize-*",
+        "performance-*",
+        "readability-*"
+    ],
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
-    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.cppStandard": "c++20",
     "C_Cpp.default.cStandard": "c17",
     "C_Cpp.doxygen.generatedStyle": "/**",
     "C_Cpp.doxygen.generateOnType": false,
