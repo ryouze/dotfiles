@@ -40,7 +40,7 @@ REPORTTIME=5  # After any command that takes 5 seconds or more, print timing inf
 typeset -U path fpath  # Make $path and $fpath unique arrays to auto-deduplicate entries
 eval "$(/opt/homebrew/bin/brew shellenv)"  # Initialize Homebrew environment (PATH, MANPATH, etc.) for Apple Silicon installs
 export PATH="$HOME/.local/bin:$PATH"  # Prepend user-local bin directory for custom tools
-fpath=(/opt/homebrew/share/zsh/site-functions /opt/homebrew/share/zsh-completions "$HOME/.zfunc" "$HOME/.docker/completions" $fpath)  # Add completion function directories for Homebrew, user functions, and Docker
+fpath=(/opt/homebrew/share/zsh/site-functions /opt/homebrew/share/zsh-completions "$HOME/.docker/completions" $fpath)  # Add completion function directories for Homebrew, user functions, and Docker
 
 ##### Tools and environment
 export EDITOR="nano"  # Set the default terminal editor
