@@ -19,6 +19,8 @@
     },
     "autoDocstring.generateDocstringOnEnter": false,
     "autoDocstring.startOnNewLine": true,
+    "breadcrumbs.icons": false,
+    "breadcrumbs.symbolPath": "off",
     "C_Cpp.clang_format_sortIncludes": true,
     "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, IndentWidth: 4, BreakBeforeBraces: Stroustrup, ColumnLimit: 0, SpacesBeforeTrailingComments: 2, PointerAlignment: Right }",
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
@@ -35,6 +37,7 @@
     "C_Cpp.vcFormat.newLine.beforeOpenBrace.namespace": "newLine",
     "C_Cpp.vcpkg.enabled": false,
     "chat.commandCenter.enabled": false,
+    "chat.focusWindowOnConfirmation": false,
     "cmake.configureOnEdit": false,
     "cmake.configureOnOpen": false,
     "cmake.launchBehavior": "breakAndReuseTerminal",
@@ -58,14 +61,17 @@
         "workbench.action.tasks.runTask"
     ],
     "cmake.showConfigureWithDebuggerNotification": false,
-    "cmake.showOptionsMovedNotification": false,
     "cSpell.diagnosticLevel": "Hint",
     "cSpell.language": "en,en-US",
     "cSpell.useCustomDecorations": false,
+    "cSpell.userWords": [
+        "SFML"
+    ],
     "css.format.spaceAroundSelectorSeparator": true,
     "debug.showVariableTypes": true,
-    "diffEditor.ignoreTrimWhitespace": true,
+    "diffEditor.ignoreTrimWhitespace": false,
     "diffEditor.renderSideBySide": true,
+    "diffEditor.useInlineViewWhenSpaceIsLimited": false,
     "doxdocgen.c.factoryMethodText": "Create a {name} object.",
     "doxdocgen.c.getterText": "Get the {name} object.",
     "doxdocgen.c.setterText": "Set the {name} object.",
@@ -93,16 +99,22 @@
     "editor.hover.above": false,
     "editor.inlayHints.fontSize": 9,
     "editor.inlayHints.padding": true,
-    "editor.inlineSuggest.showToolbar": "always",
     "editor.minimap.enabled": false,
+    "editor.overviewRulerBorder": false,
     "editor.padding.bottom": 10,
     "editor.padding.top": 10,
+    "editor.quickSuggestions": {
+        "comments": "off",
+        "other": "on",
+        "strings": "on"
+    },
     "editor.renderWhitespace": "all",
     "editor.rulers": [
         88
     ],
     "editor.scrollbar.horizontal": "visible",
     "editor.scrollbar.vertical": "visible",
+    "editor.showFoldingControls": "never",
     "editor.stickyScroll.enabled": false,
     "editor.tabCompletion": "on",
     "editor.tabSize": 4,
@@ -116,11 +128,8 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "flake8.args": [
-        "--max-line-length=140",
-        "--ignore=E203,E231,E262,E265,E501,W503,E722"
-    ],
     "git.autofetch": true,
+    "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "git.openRepositoryInParentFolders": "never",
     "git.replaceTagsWhenPull": true,
@@ -129,20 +138,14 @@
     "gitblame.inlineMessageMargin": 8,
     "gitblame.statusBarMessageClickAction": "Open git show",
     "gitblame.statusBarMessageFormat": "${author.name}: \"${commit.summary}\" (${time.ago})",
-    "github.copilot.advanced": {},
-    "github.copilot.chat.commitMessageGeneration.instructions": [
-        {
-            "text": "Use very short messages with a verb in past tense, e.g., `Improved CLI help message.`"
-        }
-    ],
     "github.copilot.chat.localeOverride": "en",
-    "github.copilot.editor.enableAutoCompletions": true,
     "github.copilot.enable": {
         "*": true,
         "markdown": true,
         "plaintext": true,
         "scminput": false
     },
+    "github.copilot.nextEditSuggestions.enabled": false,
     "go.inlayHints.assignVariableTypes": true,
     "go.inlayHints.compositeLiteralFields": true,
     "go.inlayHints.compositeLiteralTypes": true,
@@ -159,10 +162,6 @@
     "jupyter.experiments.enabled": false,
     "jupyter.interactiveWindow.textEditor.autoAddNewCell": false,
     "jupyter.interactiveWindow.textEditor.autoMoveToNextCell": false,
-    "jupyter.widgetScriptSources": [
-        "jsdelivr.com",
-        "unpkg.com"
-    ],
     "less.format.spaceAroundSelectorSeparator": true,
     "markdown.extension.tableFormatter.normalizeIndentation": true,
     "markdown.occurrencesHighlight.enabled": true,
@@ -190,14 +189,10 @@
     "pyright.disableOrganizeImports": true,
     "python.analysis.autoFormatStrings": true,
     "python.analysis.autoImportCompletions": false,
-    "python.analysis.completeFunctionParens": true,
     "python.analysis.diagnosticSeverityOverrides": {
         "reportMissingTypeStubs": "none"
     },
-    "python.analysis.inlayHints.callArgumentNames": "partial",
     "python.analysis.inlayHints.functionReturnTypes": true,
-    "python.analysis.inlayHints.pytestParameters": true,
-    "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.typeCheckingMode": "strict",
     "python.createEnvironment.trigger": "off",
     "python.experiments.enabled": false,
@@ -205,7 +200,6 @@
     "rainbow_csv.csv_lint_detect_trailing_spaces": true,
     "rainbow_csv.rbql_with_headers_by_default": true,
     "remote.autoForwardPorts": false,
-    "ruff.importStrategy": "useBundled",
     "ruff.lint.extendSelect": [
         "UP"
         // "D",
@@ -232,31 +226,22 @@
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.enablePersistentSessions": true,
     "terminal.integrated.hideOnStartup": "whenEmpty",
+    "terminal.integrated.stickyScroll.enabled": false,
     "terminal.integrated.tabs.showActions": "always",
     "typescript.preferences.quoteStyle": "double",
     "update.mode": "start",
-    "update.showReleaseNotes": false,
-    "window.customTitleBarVisibility": "auto",
+    "window.commandCenter": false,
+    "window.customTitleBarVisibility": "never",
     "window.nativeTabs": true,
     "window.newWindowDimensions": "maximized",
     "window.restoreFullscreen": true,
     "window.restoreWindows": "all",
     "workbench.activityBar.location": "top",
     "workbench.colorCustomizations": {
-        // Border color for the lines that are unchanged
-        "diffEditor.diagonalFill": "#444444", // Adjust as per the visibility you need
-        // Border color for added lines
         "diffEditor.insertedLineBackground": "#14462088",
-        // Background color for added lines
-        "diffEditor.insertedTextBackground": "#14462088", // A greenish background with transparency
-        // Text color for added lines
-        "diffEditor.insertedTextForeground": "#FFFFFF", // White text for better visibility
-        // Border color for removed lines
+        "diffEditor.insertedTextBackground": "#1b662ebe",
         "diffEditor.removedLineBackground": "#6F131F88",
-        // Background color for removed lines
-        "diffEditor.removedTextBackground": "#6F131F88", // A reddish background with transparency
-        // Text color for removed lines
-        "diffEditor.removedTextForeground": "#FFFFFF" // White text for better visibility
+        "diffEditor.removedTextBackground": "#a1192bca"
     },
     "workbench.colorTheme": "Monokai Night",
     "workbench.commandPalette.preserveInput": true,
@@ -268,6 +253,7 @@
     "workbench.editor.tabActionCloseVisibility": false,
     "workbench.enableExperiments": false,
     "workbench.iconTheme": "vscode-great-icons",
+    "workbench.layoutControl.type": "menu",
     "workbench.productIconTheme": "macos-modern",
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "newUntitledFile"
