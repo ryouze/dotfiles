@@ -146,13 +146,6 @@
         "scminput": false
     },
     "github.copilot.nextEditSuggestions.enabled": false,
-    "go.inlayHints.assignVariableTypes": true,
-    "go.inlayHints.compositeLiteralFields": true,
-    "go.inlayHints.compositeLiteralTypes": true,
-    "go.inlayHints.constantValues": true,
-    "go.inlayHints.functionTypeParameters": true,
-    "go.inlayHints.parameterNames": true,
-    "go.inlayHints.rangeVariableTypes": true,
     "html.format.indentHandlebars": true,
     "html.format.indentInnerHtml": true,
     "html.format.wrapLineLength": 0,
