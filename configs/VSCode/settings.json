@@ -192,11 +192,15 @@
     "python.analysis.diagnosticSeverityOverrides": {
         "reportMissingTypeStubs": "none"
     },
+    "python.analysis.inlayHints.callArgumentNames": "all",
     "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.pytestParameters": true,
+    "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.typeCheckingMode": "strict",
     "python.createEnvironment.trigger": "off",
     "python.experiments.enabled": false,
     "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.terminal.executeInFileDir": true,
     "rainbow_csv.csv_lint_detect_trailing_spaces": true,
     "rainbow_csv.rbql_with_headers_by_default": true,
     "remote.autoForwardPorts": false,
