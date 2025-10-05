@@ -205,9 +205,10 @@
     "rainbow_csv.rbql_with_headers_by_default": true,
     "remote.autoForwardPorts": false,
     "ruff.lint.extendSelect": [
-        "UP"
-        // "D",
-        // "ALL"
+        "UP",
+        "I",
+        "COM812",
+        "TID252"
     ],
     "search.showLineNumbers": true,
     "search.smartCase": true,
