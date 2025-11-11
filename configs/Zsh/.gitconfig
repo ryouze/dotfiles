@@ -5,17 +5,11 @@
     excludesfile = ~/.gitignore
 [user]
     name = ryouze
-    email = 98982999+ryouze@users.noreply.github.com
+    email = mirai@ryouze.net
 [credential]
-    #helper = osxkeychain
-    #helper = /usr/local/share/gcm-core/git-credential-manager
-    helper = manager
+    helper = /usr/local/share/gcm-core/git-credential-manager
 [help]
     autocorrect = prompt
 [fetch]
     prune = true
     pruneTags = true
-# [merge]
-#     ff = false
-# [pull]
-#     rebase = true
