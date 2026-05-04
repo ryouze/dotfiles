@@ -6,10 +6,10 @@
 [user]
     name = ryouze
     email = mirai@ryouze.net
-[credential]
-    helper = /usr/local/share/gcm-core/git-credential-manager
 [help]
     autocorrect = prompt
 [fetch]
     prune = true
     pruneTags = true
+[credential]
+	helper = manager
