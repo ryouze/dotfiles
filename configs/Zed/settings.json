@@ -1,0 +1,143 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "use_system_window_tabs": true,
+  "show_wrap_guides": true,
+  "wrap_guides": [88, 120],
+  "excerpt_context_lines": 25,
+  "extend_comment_on_newline": false,
+  "ui_font_size": 15.0,
+  "buffer_font_size": 13.0,
+  "diagnostics": {
+    "inline": {
+      "enabled": false,
+    },
+  },
+  "buffer_font_features": {
+    "calt": false,
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "VSCode Great Icons Theme",
+    "dark": "VSCode Great Icons Theme",
+  },
+  "edit_predictions": {
+    "provider": "none",
+    "allow_data_collection": "no",
+  },
+  "git": {
+    "inline_blame": {
+      "show_commit_summary": true,
+    },
+  },
+  "debugger": {
+    "dock": "right",
+  },
+  "terminal": {
+    "copy_on_select": true,
+  },
+  "preview_tabs": {
+    "enabled": false,
+  },
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": true,
+  },
+  "tabs": {
+    "git_status": true,
+    "file_icons": true,
+  },
+  "title_bar": {
+    "show_sign_in": false,
+  },
+  "colorize_brackets": false,
+  "inlay_hints": {
+    "enabled": true,
+    "show_other_hints": true,
+    "show_parameter_hints": true,
+    "show_type_hints": true,
+    "show_value_hints": true,
+    "show_background": false,
+  },
+  "show_whitespaces": "boundary",
+  "soft_wrap": "none",
+  "toolbar": {
+    "code_actions": true,
+    "breadcrumbs": true,
+  },
+  "scrollbar": {
+    "cursors": true,
+    "show": "system",
+  },
+  "project_panel": {
+    "hide_root": true,
+    "git_status_indicator": true,
+    "diagnostic_badges": true,
+    "scrollbar": {},
+    "bold_folder_labels": false,
+    "auto_fold_dirs": true,
+    "dock": "right",
+  },
+  "outline_panel": {
+    "button": false,
+    "dock": "right",
+  },
+  "collaboration_panel": {
+    "button": false,
+    "dock": "right",
+  },
+  "agent": {
+    "notify_when_agent_waiting": "never",
+    "terminal_init_command": "",
+    "default_profile": "write",
+    "default_model": {
+      "provider": "openai-subscribed",
+      "model": "gpt-5.4",
+      "enable_thinking": true,
+      "effort": "high",
+    },
+    "auto_compact": {
+      "threshold": "90%",
+    },
+    "show_turn_stats": true,
+    "enable_feedback": false,
+    "sidebar_side": "left",
+    "dock": "right",
+  },
+  "git_panel": {
+    "show_count_badge": true,
+    "collapse_untracked_diff": false,
+    "sort_by_path": true,
+    "status_style": "label_color",
+    "file_icons": true,
+    "tree_view": true,
+    "dock": "right",
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+  "hide_mouse": "never",
+  "cursor_blink": false,
+  "auto_update": false,
+  "when_closing_with_no_tabs": "keep_window_open",
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false,
+    "anthropic_retention": false,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "GitHub Dark Default",
+  },
+}
