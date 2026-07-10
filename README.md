@@ -26,7 +26,9 @@ dotfiles is a collection of configuration files for various tools and applicatio
 │   │   ├── .bash_aliases
 │   │   └── cmdrc.bat
 │   ├── Zed
-│   │   └── settings.json
+│   │   ├── keymap.json
+│   │   ├── settings.json
+│   │   └── sort.py
 │   └── Zsh
 │       ├── .condarc
 │       ├── .gitconfig

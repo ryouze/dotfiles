@@ -1,0 +1,74 @@
+[
+  {
+    "bindings": {
+      "cmd-[": "pane::GoBack",
+    },
+    "context": "Pane",
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "ctrl--": "pane::GoBack",
+    },
+  },
+  {
+    "bindings": {
+      "cmd-[": "pane::GoBack",
+    },
+    "context": "ThreadHistory",
+  },
+  {
+    "context": "ThreadHistory",
+    "unbind": {
+      "ctrl--": "pane::GoBack",
+    },
+  },
+  {
+    "bindings": {
+      "cmd-[": "pane::GoBack",
+    },
+    "context": "AcpThread",
+  },
+  {
+    "context": "AcpThread",
+    "unbind": {
+      "ctrl--": "pane::GoBack",
+    },
+  },
+  {
+    "bindings": {
+      "cmd-[": "pane::GoBack",
+    },
+    "context": "AgentConfiguration",
+  },
+  {
+    "context": "AgentConfiguration",
+    "unbind": {
+      "ctrl--": "pane::GoBack",
+    },
+  },
+  {
+    "bindings": {
+      "cmd-]": "pane::GoForward",
+    },
+    "context": "Pane",
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "ctrl-_": "pane::GoForward",
+    },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-[": "editor::Outdent",
+    },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-]": "editor::Indent",
+    },
+  },
+]
