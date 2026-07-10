@@ -7,137 +7,145 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "use_system_window_tabs": true,
-  "show_wrap_guides": true,
-  "wrap_guides": [88, 120],
-  "excerpt_context_lines": 25,
-  "extend_comment_on_newline": false,
-  "ui_font_size": 15.0,
+  "agent": {
+    "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
+      "model": "gpt-5.4",
+      "provider": "openai-subscribed"
+    },
+    "default_profile": "write",
+    "dock": "right",
+    "enable_feedback": false,
+    "flexible": true,
+    "notify_when_agent_waiting": "never",
+    "show_turn_stats": true,
+    "sidebar_side": "left"
+  },
+  "auto_update": false,
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "base_keymap": "VSCode",
+  "buffer_font_features": {
+    "calt": false
+  },
   "buffer_font_size": 13.0,
+  "collaboration_panel": {
+    "button": false,
+    "dock": "right"
+  },
+  "cursor_blink": false,
+  "debugger": {
+    "dock": "right"
+  },
   "diagnostics": {
     "inline": {
-      "enabled": false,
-    },
+      "enabled": false
+    }
   },
-  "buffer_font_features": {
-    "calt": false,
-  },
-  "icon_theme": {
-    "mode": "dark",
-    "light": "VSCode Great Icons Theme",
-    "dark": "VSCode Great Icons Theme",
-  },
+  "diff_view_style": "split",
   "edit_predictions": {
-    "provider": "none",
     "allow_data_collection": "no",
+    "provider": "none"
   },
+  "excerpt_context_lines": 25,
+  "extend_comment_on_newline": false,
   "git": {
     "inline_blame": {
-      "show_commit_summary": true,
-    },
+      "show_commit_summary": true
+    }
   },
-  "debugger": {
+  "git_panel": {
+    "collapse_untracked_diff": false,
     "dock": "right",
-  },
-  "terminal": {
-    "copy_on_select": true,
-  },
-  "preview_tabs": {
-    "enabled": false,
-  },
-  "tab_bar": {
-    "show_pinned_tabs_in_separate_row": true,
-  },
-  "tabs": {
-    "git_status": true,
+    "entry_primary_click_action": "file_diff",
     "file_icons": true,
+    "group_by": "none",
+    "show_count_badge": true,
+    "status_style": "label_color",
+    "tree_view": true
   },
-  "title_bar": {
-    "show_sign_in": false,
-  },
-  "colorize_brackets": false,
+  "go_to_definition_scroll_strategy": "top",
+  "hide_mouse": "never",
+  "hover_popover_delay": 100,
+  "icon_theme": "VSCode Great Icons Theme",
   "inlay_hints": {
     "enabled": true,
+    "show_background": false,
     "show_other_hints": true,
     "show_parameter_hints": true,
     "show_type_hints": true,
-    "show_value_hints": true,
-    "show_background": false,
+    "show_value_hints": true
   },
-  "show_whitespaces": "boundary",
-  "soft_wrap": "none",
-  "toolbar": {
-    "code_actions": true,
-    "breadcrumbs": true,
+  "message_editor": {
+    "auto_replace_emoji_shortcode": false
   },
-  "scrollbar": {
-    "cursors": true,
-    "show": "system",
-  },
-  "project_panel": {
-    "hide_root": true,
-    "git_status_indicator": true,
-    "diagnostic_badges": true,
-    "scrollbar": {},
-    "bold_folder_labels": false,
-    "auto_fold_dirs": true,
-    "dock": "right",
+  "minimap": {
+    "show": "never"
   },
   "outline_panel": {
-    "button": false,
+    "button": true,
+    "dock": "right"
+  },
+  "preferred_line_length": 88,
+  "preview_tabs": {
+    "enabled": false
+  },
+  "project_panel": {
+    "auto_fold_dirs": true,
+    "bold_folder_labels": false,
+    "diagnostic_badges": true,
     "dock": "right",
+    "git_status_indicator": true,
+    "hide_root": false,
+    "scrollbar": {
+      "show": "always"
+    }
   },
-  "collaboration_panel": {
-    "button": false,
-    "dock": "right",
-  },
-  "agent": {
-    "notify_when_agent_waiting": "never",
-    "terminal_init_command": "",
-    "default_profile": "write",
-    "default_model": {
-      "provider": "openai-subscribed",
-      "model": "gpt-5.4",
-      "enable_thinking": true,
-      "effort": "high",
-    },
-    "auto_compact": {
-      "threshold": "90%",
-    },
-    "show_turn_stats": true,
-    "enable_feedback": false,
-    "sidebar_side": "left",
-    "dock": "right",
-  },
-  "git_panel": {
-    "show_count_badge": true,
-    "collapse_untracked_diff": false,
-    "sort_by_path": true,
-    "status_style": "label_color",
-    "file_icons": true,
-    "tree_view": true,
-    "dock": "right",
-  },
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 1000,
-    },
-  },
-  "hide_mouse": "never",
-  "cursor_blink": false,
-  "auto_update": false,
-  "when_closing_with_no_tabs": "keep_window_open",
-  "telemetry": {
-    "diagnostics": true,
-    "metrics": false,
-    "anthropic_retention": false,
+  "scrollbar": {
+    "cursors": false,
+    "show": "always"
   },
   "session": {
-    "trust_all_worktrees": true,
+    "trust_all_worktrees": true
   },
-  "theme": {
-    "mode": "dark",
-    "light": "One Light",
-    "dark": "GitHub Dark Default",
+  "show_whitespaces": "boundary",
+  "soft_wrap": "editor_width",
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": true,
+    "show_tab_bar_buttons": true
   },
+  "tabs": {
+    "close_position": "left",
+    "file_icons": true,
+    "git_status": true,
+    "show_close_button": "hover"
+  },
+  "telemetry": {
+    "anthropic_retention": false,
+    "diagnostics": true,
+    "metrics": false
+  },
+  "terminal": {
+    "copy_on_select": true,
+    "cursor_shape": "bar"
+  },
+  "theme": "GitHub Dark Default",
+  "title_bar": {
+    "show_menus": false,
+    "show_project_items": true,
+    "show_sign_in": false,
+    "show_user_menu": false,
+    "show_user_picture": false
+  },
+  "ui_font_size": 15.0,
+  "use_system_window_tabs": true,
+  "when_closing_with_no_tabs": "keep_window_open",
+  "wrap_guides": [
+    88,
+    120
+  ]
 }
