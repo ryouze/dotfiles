@@ -1,0 +1,2 @@
+# ~/.config/codebook/codebook.toml
+dictionaries = ["en_us", "pl"]
