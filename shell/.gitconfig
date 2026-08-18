@@ -1,0 +1,21 @@
+[init]
+    defaultBranch = main
+
+[core]
+    editor = nano
+    excludesfile = ~/.gitignore
+
+[user]
+    name = ryouze
+    email = mirai@ryouze.net
+
+[help]
+    autocorrect = prompt
+
+[fetch]
+    prune = true
+    pruneTags = true
+
+[credential]
+    helper =
+    helper = manager

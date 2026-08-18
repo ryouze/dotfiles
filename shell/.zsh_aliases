@@ -1,0 +1,34 @@
+#!/usr/bin/env zsh
+
+##### File and Directory Management
+alias la="ls -A"  # Display all files, including hidden ones
+alias ll="ls -AlhS"  # Display all files with detailed information, sorted by size
+alias cp="cp -i"  # Require confirmation before overwriting files
+alias stat="stat -x"  # Ensure detailed, human-readable output
+
+##### File Cleanup
+alias ds-remove="find . -name '.DS_Store' -print -delete 2>/dev/null"
+alias underscore-remove="find . -type f -name '._*' -print -delete 2>/dev/null"
+alias pycache-remove="find . -name \"__pycache__\" -type d -exec rm -r {} + 2>/dev/null"
+
+##### Command Enhancements
+alias cat="bat --style=plain --pager=never"  # Use bat as cat with no decorations and no paging
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"  # Render man pages with preserved formatting and bat highlighting
+alias grep="grep --color=auto"  # Colorized grep output when supported
+alias igrep="grep -i"  # Case-insensitive grep
+
+##### System
+alias reload="source ~/.zshrc"  # Reload zsh configuration
+
+##### Development
+alias glog="git log --oneline"
+alias hwr="header-warden --no-bare"
+
+##### Functions
+downscale-screen-recording() {
+    # Downscale a screen recording by half and re-encode to H.264/AAC; outputs <name>_smaller.<ext>
+    local input_file="$1"
+    local output_file="${input_file%.*}_smaller.${input_file##*.}"
+    ffmpeg -i "$input_file" -vf "scale=trunc(iw/2/2)*2:trunc(ih/2/2)*2" -c:v libx264 -b:v 1M -c:a aac -b:a 128k "$output_file"
+    echo "Downscaled video saved as $output_file."
+}
