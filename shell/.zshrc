@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 
 ##### Core behavior
-umask 022  # Create files with permissions 644 and directories 755 by default
-setopt prompt_subst  # Allow parameter and command substitution inside $PROMPT
+#setopt prompt_subst  # Allow parameter and command substitution inside $PROMPT
 setopt pipefail  # Make a pipeline return failure if any command in it fails
 setopt interactive_comments  # Allow # comments at the interactive command line
 setopt nobeep  # Disable the terminal bell on errors or completions
@@ -25,7 +24,6 @@ HISTSIZE=100000  # Number of history entries kept in memory
 SAVEHIST=100000  # Number of history entries saved to disk
 setopt appendhistory  # Append new history lines to the history file instead of overwriting it
 setopt share_history  # Share history between all interactive shells in real time
-setopt inc_append_history  # Write each command to the history file immediately after it executes
 setopt extended_history  # Record timestamp and duration for each history entry
 setopt hist_ignore_space  # Do not record commands that start with a leading space
 setopt hist_reduce_blanks  # Remove superfluous blanks from each command line before saving
@@ -62,7 +60,7 @@ zstyle ':completion:*' max-errors 1 numeric  # Permit one typo and interpret the
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*'  # Case-insensitive and separator-flexible matching
 zstyle ':completion:*' accept-exact '*(N)'  # If there is an exact match, accept it immediately
 zstyle ':completion:*' menu select=2  # Start interactive menu selection when there are two or more matches
-compinit -i -d "$HOME/.zcompdump"  # Initialize completion; ignore insecure dirs; cache dump for faster startup
+compinit -d "$HOME/.zcompdump"  # Initialize completion; cache dump for faster startup
 
 ##### Autosuggestions
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20  # Limit the number of previewed characters shown by autosuggestions
