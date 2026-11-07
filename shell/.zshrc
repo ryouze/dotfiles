@@ -36,7 +36,8 @@ REPORTTIME=5  # After any command that takes 5 seconds or more, print timing inf
 
 ##### PATH and FPATH: dedup and compose
 typeset -U path fpath  # Make $path and $fpath unique arrays to auto-deduplicate entries
-eval "$(/opt/homebrew/bin/brew shellenv)"  # Initialize Homebrew environment (PATH, MANPATH, etc.) for Apple Silicon installs
+# Homebrew was moved to ~/.zprofile
+#eval "$(/opt/homebrew/bin/brew shellenv)"  # Initialize Homebrew environment (PATH, MANPATH, etc.) for Apple Silicon installs
 export PATH="$HOME/.local/bin:$PATH"  # Prepend user-local bin directory for custom tools
 fpath=(/opt/homebrew/share/zsh/site-functions /opt/homebrew/share/zsh-completions "$HOME/.docker/completions" $fpath)  # Add completion function directories for Homebrew, user functions, and Docker
 
@@ -69,7 +70,7 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh  # Enable
 
 ##### fzf key bindings
 #source <(fzf --zsh)  # Do not use the full fzf shell extension, only key bindings
-source /opt/homebrew/opt/fzf/shell/key-bindings.zsh  # Load fzf key bindings for history search, file completion, and widgets
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh  # Enable fuzzy history search, file selection, and directory navigation
 
 ##### Prompt: Colorful and minimal
 autoload -Uz colors  # Load the colors helper to ensure named color sequences are available
