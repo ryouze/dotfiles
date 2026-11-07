@@ -8,25 +8,48 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "agent": {
+    "auto_compact": {
+      "enabled": false,
+    },
     "default_model": {
-      "effort": "medium",
+      "effort": "high",
       "enable_thinking": true,
-      "model": "gpt-5.5",
+      "model": "gpt-6.1-sol",
       "provider": "openai-subscribed",
     },
     "default_profile": "write",
     "dock": "right",
     "enable_feedback": false,
+    "favorite_models": [
+      {
+        "effort": "high",
+        "enable_thinking": true,
+        "model": "gpt-6.1-sol",
+        "provider": "openai-subscribed",
+      },
+    ],
     "flexible": true,
     "notify_when_agent_waiting": "never",
+    "play_sound_when_agent_done": "when_hidden",
     "sandbox_permissions": {
       "allow_all_hosts": true,
     },
     "show_turn_stats": true,
-    "sidebar_side": "left",
+    "threads_sidebar": {
+      "position": "left",
+    },
     "tool_permissions": {
       "tools": {
+        "create_directory": {
+          "default": "allow",
+        },
         "fetch": {
+          "default": "allow",
+        },
+        "move_path": {
+          "default": "allow",
+        },
+        "skill": {
           "default": "allow",
         },
         "terminal": {
@@ -50,6 +73,10 @@
     "calt": false,
   },
   "buffer_font_size": 13.0,
+  "calls": {
+    "mute_on_join": true,
+  },
+  "cli_default_open_behavior": "new_window",
   "collaboration_panel": {
     "button": false,
     "dock": "right",
@@ -82,12 +109,13 @@
     "dock": "right",
     "entry_primary_click_action": "file_diff",
     "file_icons": true,
+    "folder_indicator": "both",
     "group_by": "staging",
     "show_count_badge": true,
     "status_style": "label_color",
     "tree_view": true,
   },
-  "go_to_definition_scroll_strategy": "top",
+  "go_to_definition_scroll_strategy": "center",
   "hide_mouse": "never",
   "hover_popover_delay": 100,
   "icon_theme": "VSCode Great Icons Theme",
@@ -115,26 +143,58 @@
     "bold_folder_labels": false,
     "diagnostic_badges": true,
     "dock": "right",
+    "file_icons": true,
+    "folder_indicator": "both",
     "git_status_indicator": true,
+    "hide_hidden": false,
     "hide_root": false,
     "scrollbar": {
       "show": "always",
     },
   },
+  "proxy": "",
+  "reveal_if_open": true,
   "scrollbar": {
     "cursors": false,
-    "diagnostics": "error",
+    "selected_symbol": false,
+    "selected_text": false,
     "show": "always",
   },
   "search": {
     "center_on_match": true,
   },
-  "session": {
-    "trust_all_worktrees": true,
-  },
+  "session": {},
   "show_whitespaces": "boundary",
   "soft_wrap": "editor_width",
+  "ssh_connections": [
+    {
+      "args": [],
+      "host": "debian.local",
+      "nickname": "Home server",
+      "projects": [
+        {
+          "paths": ["/srv"],
+        },
+      ],
+      "username": "void",
+    },
+    {
+      "args": [],
+      "host": "desktop.local",
+      "nickname": "Gaming PC",
+      "projects": [
+        {
+          "paths": ["/home/shiro/dev"],
+        },
+      ],
+      "username": "shiro",
+    },
+  ],
+  "status_bar": {
+    "line_endings_button": true,
+  },
   "tab_bar": {
+    "show": true,
     "show_pinned_tabs_in_separate_row": true,
     "show_tab_bar_buttons": true,
   },
@@ -152,6 +212,9 @@
   "terminal": {
     "copy_on_select": true,
     "cursor_shape": "bar",
+    "show_count_badge": false,
+    "toolbar": {},
+    "working_directory": null,
   },
   "theme": "GitHub Dark Default",
   "title_bar": {
@@ -160,12 +223,16 @@
     "show_sign_in": false,
     "show_user_menu": false,
     "show_user_picture": false,
+    "show_worktree_name": false,
   },
   "toolbar": {
+    "breadcrumbs": true,
     "code_actions": true,
+    "quick_actions": true,
+    "selections_menu": true,
   },
   "ui_font_size": 15.0,
-  "use_system_window_tabs": true,
+  "use_system_window_tabs": false,
   "when_closing_with_no_tabs": "keep_window_open",
   "wrap_guides": [88, 120],
 }
