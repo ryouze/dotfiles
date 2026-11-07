@@ -17,12 +17,15 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"  # Render man pages with prese
 alias grep="grep --color=auto"  # Colorized grep output when supported
 alias igrep="grep -i"  # Case-insensitive grep
 
-##### System
-alias reload="source ~/.zshrc"  # Reload zsh configuration
+#### Brew
+alias brew-upgrade-formulas="brew upgrade --formula"
+alias brew-upgrade-casks="brew upgrade --cask --greedy \$(brew list --cask | grep -v '^docker-desktop$')"
 
 ##### Development
 alias glog="git log --oneline"
 alias hwr="header-warden --no-bare"
+alias git-force-pull='git fetch && git reset --hard @{u}'
+alias git-discard='git reset --hard HEAD && git clean -fd'
 
 ##### Functions
 downscale-screen-recording() {
